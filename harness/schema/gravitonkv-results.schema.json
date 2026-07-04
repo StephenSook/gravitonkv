@@ -56,6 +56,20 @@
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "#/$defs/cell" }
+    },
+    "failed_cells": {
+      "type": "array",
+      "description": "Cells that could not produce the minimum rep count. Documented, never deleted.",
+      "items": {
+        "type": "object",
+        "required": ["config", "context", "anomalies"],
+        "additionalProperties": false,
+        "properties": {
+          "config": { "enum": ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"] },
+          "context": { "type": "integer" },
+          "anomalies": { "type": "array", "items": { "type": "string" } }
+        }
+      }
     }
   },
   "$defs": {
