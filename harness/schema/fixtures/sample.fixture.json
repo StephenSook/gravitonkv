@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_note": "SCHEMA FIXTURE ONLY. Synthetic values that exercise the schema and the aggregate-recompute check. This file contains no benchmark data and must never feed a derived view.",
+  "environment": {
+    "instance_type": "c8g.4xlarge",
+    "cpu_model": "Arm Neoverse V2 (Graviton4)",
+    "arch": "aarch64",
+    "vcpus": 16,
+    "ram_gb": 32,
+    "kernel": "6.17.0-1019-aws",
+    "os": "Ubuntu 24.04.2 LTS",
+    "llama_cpp_commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
+    "build_flags": "-DCMAKE_BUILD_TYPE=Release -DGGML_CPU_KLEIDIAI=ON",
+    "system_info": "CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | SVE = 1 | DOTPROD = 1 | SVE_CNT = 16 | OPENMP = 1 | KLEIDIAI = 1 | REPACK = 1",
+    "backends": "CPU",
+    "compiler": "gcc",
+    "compiler_version": "13.3.0",
+    "captured_at": "2026-07-04T00:00:00Z"
+  },
+  "model": {
+    "name": "Qwen3-0.6B",
+    "hf_repo": "unsloth/Qwen3-0.6B-GGUF",
+    "quant": "Q4_K_M",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "cells": [
+    {
+      "config": "q8_0",
+      "type_k": "q8_0",
+      "type_v": "q8_0",
+      "context": 8192,
+      "n_prompt": 8192,
+      "n_gen": 256,
+      "n_depth": 0,
+      "n_reps": 5,
+      "warmup_discarded": true,
+      "seed": 42,
+      "threads": 4,
+      "flash_attn": true,
+      "metrics": {
+        "prefill_tok_s": {
+          "raw": [11.5, 11.6, 11.6, 11.7],
+          "median": 11.6,
+          "mean": 11.6,
+          "stdev": 0.0816497,
+          "cv": 0.0070388
+        },
+        "decode_tok_s": {
+          "raw": [5.0, 5.1, 5.1, 5.2],
+          "median": 5.1,
+          "mean": 5.1,
+          "stdev": 0.0816497,
+          "cv": 0.0160097
+        },
+        "peak_memory_mb": {
+          "raw": [5500.0, 5502.0, 5504.0, 5506.0],
+          "median": 5503.0,
+          "mean": 5503.0,
+          "stdev": 2.581989,
+          "cv": 0.0004692
+        }
+      },
+      "quality": {
+        "niah": 1.0,
+        "perplexity": 12.34
+      },
+      "pmu": null,
+      "anomalies": [],
+      "raw_run_timestamps": [
+        "2026-07-04T00:10:00Z",
+        "2026-07-04T00:14:00Z",
+        "2026-07-04T00:18:00Z",
+        "2026-07-04T00:22:00Z"
+      ]
+    }
+  ]
+}

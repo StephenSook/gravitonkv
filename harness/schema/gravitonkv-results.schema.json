@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/StephenSook/gravitonkv/harness/schema/gravitonkv-results.schema.json",
+  "title": "GravitonKVResults",
+  "description": "Canonical per-model results file for the GravitonKV study. One file per model plus an index.json. Every number in every derived view is generated from files that validate against this schema.",
+  "type": "object",
+  "required": ["schema_version", "environment", "model", "cells"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "fixture_note": {
+      "type": "string",
+      "description": "Present ONLY on schema test fixtures. Any file carrying this field contains no benchmark data and must never feed a derived view."
+    },
+    "environment": {
+      "type": "object",
+      "required": [
+        "instance_type", "cpu_model", "arch", "vcpus", "ram_gb", "kernel", "os",
+        "llama_cpp_commit", "build_flags", "backends", "compiler", "captured_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "instance_type": { "type": "string" },
+        "cpu_model": { "type": "string" },
+        "arch": { "const": "aarch64" },
+        "vcpus": { "type": "integer", "minimum": 1 },
+        "ram_gb": { "type": "number", "exclusiveMinimum": 0 },
+        "kernel": { "type": "string" },
+        "os": { "type": "string" },
+        "llama_cpp_commit": { "const": "2d973636e292ee6f75fadcf08d29cb33511f509f" },
+        "llama_cpp_build_number": { "type": "integer" },
+        "build_flags": { "type": "string", "pattern": "GGML_CPU_KLEIDIAI=ON" },
+        "system_info": { "type": "string", "description": "Verbatim system_info line; must show KLEIDIAI = 1" },
+        "backends": { "type": "string" },
+        "compiler": { "type": "string" },
+        "compiler_version": { "type": "string" },
+        "captured_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": ["name", "hf_repo", "quant", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": ["Qwen3-4B-Instruct-2507", "Qwen3-1.7B", "Qwen3-0.6B", "Phi-4-mini", "Granite-4.0-micro", "SmolLM3-3B"]
+        },
+        "hf_repo": { "type": "string" },
+        "quant": { "type": "string", "description": "Weight quantization, distinct from KV quant (e.g. Q4_K_M)" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "model_size_bytes": { "type": "integer" },
+        "n_params": { "type": "integer" }
+      }
+    },
+    "cells": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/cell" }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "required": ["raw", "median", "mean", "stdev", "cv"],
+      "additionalProperties": false,
+      "properties": {
+        "raw": {
+          "type": "array",
+          "minItems": 4,
+          "items": { "type": "number" },
+          "description": "Post-warmup rep values only. Minimum 4 kept reps (N=5 with first discarded)."
+        },
+        "median": { "type": "number" },
+        "mean": { "type": "number" },
+        "stdev": { "type": "number", "minimum": 0 },
+        "cv": { "type": "number", "minimum": 0 }
+      }
+    },
+    "cell": {
+      "type": "object",
+      "required": [
+        "config", "type_k", "type_v", "context", "n_prompt", "n_gen",
+        "n_reps", "warmup_discarded", "seed", "metrics", "raw_run_timestamps"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "config": { "enum": ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"] },
+        "type_k": { "enum": ["f16", "q8_0", "q4_0"] },
+        "type_v": { "enum": ["f16", "q8_0", "q4_0"] },
+        "context": { "enum": [2048, 8192, 16384, 32768, 131072] },
+        "n_prompt": { "type": "integer", "minimum": 0 },
+        "n_gen": { "type": "integer", "minimum": 0 },
+        "n_depth": { "type": "integer" },
+        "n_reps": { "type": "integer", "minimum": 5 },
+        "warmup_discarded": { "const": true },
+        "seed": { "type": "integer" },
+        "threads": { "type": "integer", "minimum": 1 },
+        "flash_attn": { "const": true },
+        "metrics": {
+          "type": "object",
+          "required": ["prefill_tok_s", "decode_tok_s", "peak_memory_mb"],
+          "additionalProperties": false,
+          "properties": {
+            "prefill_tok_s": { "$ref": "#/$defs/metric" },
+            "decode_tok_s": { "$ref": "#/$defs/metric" },
+            "peak_memory_mb": { "$ref": "#/$defs/metric" },
+            "kv_buffer_mb": { "$ref": "#/$defs/metric" }
+          }
+        },
+        "quality": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "niah": { "type": "number", "minimum": 0, "maximum": 1 },
+            "ruler_lite": { "type": "number", "minimum": 0, "maximum": 1 },
+            "perplexity": { "type": "number", "exclusiveMinimum": 0 },
+            "kld": { "type": "number", "minimum": 0 }
+          }
+        },
+        "pmu": {
+          "type": ["object", "null"],
+          "additionalProperties": true,
+          "properties": {
+            "instructions": { "type": "number" },
+            "cycles": { "type": "number" },
+            "ipc": { "type": "number" },
+            "stalled_slots_frontend_pct": { "type": "number" },
+            "stalled_slots_backend_pct": { "type": "number" },
+            "l1d_cache_refill": { "type": "number" },
+            "l2d_cache_refill": { "type": "number" },
+            "ll_cache_miss_rd": { "type": "number" },
+            "read_bw_proxy_bytes_s": {
+              "type": "number",
+              "description": "Per-core r37 read-demand estimate on virtualized instances. A proxy, not true DRAM bandwidth (CMN counters are metal-only)."
+            }
+          }
+        },
+        "anomalies": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Anything odd about this cell. Documented, never deleted."
+        },
+        "raw_run_timestamps": {
+          "type": "array",
+          "items": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}
