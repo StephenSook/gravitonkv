@@ -1,0 +1,15 @@
+# GravitonKV locked model set. Weight quant Q4_K_M everywhere.
+# Verified 2026-07-04 on c8g.4xlarge; snapshot of the EBS volume holds these exact files.
+# Sources:
+#   Qwen3-4B-Instruct-2507  https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF
+#   Qwen3-1.7B              https://huggingface.co/unsloth/Qwen3-1.7B-GGUF
+#   Qwen3-0.6B              https://huggingface.co/unsloth/Qwen3-0.6B-GGUF
+#   Phi-4-mini-instruct     https://huggingface.co/unsloth/Phi-4-mini-instruct-GGUF
+#   Granite 4.0 micro       https://huggingface.co/ibm-granite/granite-4.0-micro-GGUF
+#   SmolLM3-3B              https://huggingface.co/ggml-org/SmolLM3-3B-GGUF (open mirror; HuggingFaceTB GGUF repo requires auth)
+88c00229914083cd112853aab84ed51b87bdf6b9ce42f532d8c85c7c63b1730a  Phi-4-mini-instruct-Q4_K_M.gguf
+ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a  Qwen3-0.6B-Q4_K_M.gguf
+b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897  Qwen3-1.7B-Q4_K_M.gguf
+3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597  Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e  SmolLM3-3B-Q4_K_M.gguf
+97c417dcc0534b0737c74016fb2af083cb17c3b51eaac621192d23961b7024eb  granite-4.0-micro-Q4_K_M.gguf
