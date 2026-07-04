@@ -1,0 +1,45 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Models (downloaded at run time, never committed)
+models/
+*.gguf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+
+# Vercel local link
+.vercel/
+
+# OS / editors
+.DS_Store
+.AppleDouble
+._*
+.vscode/
+.idea/
+*.swp
+
+# Logs and scratch
+*.log
+tmp/
+
+# Keep the env template tracked
+!.env.example
