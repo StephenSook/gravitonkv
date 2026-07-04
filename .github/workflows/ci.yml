@@ -87,11 +87,15 @@ jobs:
               -fa 1 -ctk "$cfg" -ctv "$cfg" -p 64 -n 16 -r 2 -o md
           done
 
-      - name: Mixed KV-config smoke (q8_0/q4_0, q4_0/q8_0)
+      - name: Harness end-to-end (ci-mini sweep, canonical JSON out)
+        env:
+          GKV_INSTANCE_TYPE: github-actions-cobalt100
         run: |
-          for pair in "q8_0 q4_0" "q4_0 q8_0"; do
-            set -- $pair
-            echo "=== KV K=$1 V=$2 ==="
-            ./llama.cpp/build/bin/llama-bench -m "models/$SMOKE_MODEL" \
-              -fa 1 -ctk "$1" -ctv "$2" -p 64 -n 16 -r 2 -o md
-          done
+          sudo apt-get install -y -qq python3-yaml
+          python3 harness/sweep.py --config harness/sweeps/ci-mini.yaml
+          cat ci-results/ci-mini.json | head -40
+
+      - name: Validate harness output against canonical schema
+        run: |
+          npm ci
+          node scripts/validate-results.mjs ci-results/ci-mini.json

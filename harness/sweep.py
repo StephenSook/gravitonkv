@@ -114,8 +114,10 @@ def capture_environment(cfg):
     commit = run(["git", "-C", cfg["llama_cpp_dir"], "rev-parse", "HEAD"]).stdout.strip()
     if commit != PINNED_COMMIT:
         sys.exit(f"FATAL: llama.cpp at {commit}, expected pinned {PINNED_COMMIT}")
+    # -c 512 is load-bearing: without it llama-completion defaults to the
+    # model's native context (262k for Qwen3-4B) and the KV allocation OOMs.
     probe = run([str(bin_dir / "llama-completion"), "-m", cfg["model"]["file"],
-                 "-p", "hi", "-n", "1", "-fa", "on", "-t", str(cfg["threads"])])
+                 "-p", "hi", "-n", "1", "-fa", "on", "-c", "512", "-t", str(cfg["threads"])])
     system_info = ""
     for line in (probe.stderr + probe.stdout).splitlines():
         if "system_info:" in line:
@@ -137,7 +139,7 @@ def capture_environment(cfg):
         if line.startswith("MemTotal:"):
             mem_kb = int(line.split()[1])
     return {
-        "instance_type": imds("instance-type"),
+        "instance_type": os.environ.get("GKV_INSTANCE_TYPE") or imds("instance-type") or "unknown",
         "cpu_model": f"{cpu_model} (Graviton4)" if "Neoverse-V2" in cpu_model else cpu_model,
         "arch": platform.machine(),
         "vcpus": os.cpu_count(),

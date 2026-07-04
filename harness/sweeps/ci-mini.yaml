@@ -1,0 +1,17 @@
+# CI harness smoke: Qwen3-0.6B, one mixed config, 2k context, on GitHub's
+# arm64 runners (Cobalt 100, Neoverse N2). Proves the harness end-to-end.
+# CI numbers are never findings.
+sweep: ci-mini
+llama_cpp_dir: ./llama.cpp
+model:
+  name: Qwen3-0.6B
+  file: ./models/Qwen3-0.6B-Q4_K_M.gguf
+  hf_repo: unsloth/Qwen3-0.6B-GGUF
+  quant: Q4_K_M
+configs: ["q8_0/q4_0"]
+contexts: [2048]
+reps: 5
+n_gen: 64
+threads: 4
+seed: 42
+output_dir: ./ci-results
