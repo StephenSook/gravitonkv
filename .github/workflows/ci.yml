@@ -1,0 +1,97 @@
+# GravitonKV CI. Runs on GitHub's arm64 hosted runners (Azure Cobalt 100,
+# Neoverse N2). CI validates the harness and reproducibility only. Cobalt 100
+# is not Graviton4: no number produced here is ever a finding.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  LLAMA_CPP_COMMIT: 2d973636e292ee6f75fadcf08d29cb33511f509f
+  SMOKE_MODEL_URL: https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf
+  SMOKE_MODEL: Qwen3-0.6B-Q4_K_M.gguf
+
+jobs:
+  validate-results:
+    name: schema validation
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+
+  harness-smoke:
+    name: pinned-build smoke (Cobalt 100, not a findings source)
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache llama.cpp build at pinned commit
+        id: cache-llama
+        uses: actions/cache@v4
+        with:
+          path: llama.cpp/build/bin
+          key: llama-cpp-${{ env.LLAMA_CPP_COMMIT }}-kleidiai-v1
+
+      - name: Build llama.cpp at pinned commit with KleidiAI
+        if: steps.cache-llama.outputs.cache-hit != 'true'
+        run: |
+          git clone https://github.com/ggml-org/llama.cpp
+          cd llama.cpp
+          git checkout "$LLAMA_CPP_COMMIT"
+          cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_CPU_KLEIDIAI=ON
+          cmake --build build --target llama-bench llama-completion -j "$(nproc)"
+
+      - name: Cache smoke model
+        id: cache-model
+        uses: actions/cache@v4
+        with:
+          path: models/${{ env.SMOKE_MODEL }}
+          key: model-${{ env.SMOKE_MODEL }}-v1
+
+      - name: Download smoke model
+        if: steps.cache-model.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p models
+          curl -L --fail --retry 3 -o "models/$SMOKE_MODEL" "$SMOKE_MODEL_URL"
+
+      - name: Record smoke model SHA256
+        run: sha256sum "models/$SMOKE_MODEL"
+
+      - name: Assert KLEIDIAI = 1 in system_info
+        run: |
+          ./llama.cpp/build/bin/llama-completion -m "models/$SMOKE_MODEL" \
+            -p "hello" -n 4 --seed 42 -fa on 2> sysinfo.log || true
+          grep -E "system_info:.*KLEIDIAI = 1" sysinfo.log \
+            || { echo "FATAL: KLEIDIAI = 1 not present in system_info"; cat sysinfo.log; exit 1; }
+          grep -E "system_info:.*MATMUL_INT8 = 1" sysinfo.log \
+            || { echo "FATAL: MATMUL_INT8 = 1 not present in system_info"; exit 1; }
+
+      - name: Mini KV-config smoke (f16, q8_0, q4_0)
+        run: |
+          for cfg in f16 q8_0 q4_0; do
+            echo "=== KV $cfg ==="
+            ./llama.cpp/build/bin/llama-bench -m "models/$SMOKE_MODEL" \
+              -fa 1 -ctk "$cfg" -ctv "$cfg" -p 64 -n 16 -r 2 -o md
+          done
+
+      - name: Mixed KV-config smoke (q8_0/q4_0, q4_0/q8_0)
+        run: |
+          for pair in "q8_0 q4_0" "q4_0 q8_0"; do
+            set -- $pair
+            echo "=== KV K=$1 V=$2 ==="
+            ./llama.cpp/build/bin/llama-bench -m "models/$SMOKE_MODEL" \
+              -fa 1 -ctk "$1" -ctv "$2" -p 64 -n 16 -r 2 -o md
+          done
