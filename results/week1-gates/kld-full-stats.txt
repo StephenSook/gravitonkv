@@ -1,0 +1,31 @@
+K8V4 (ctk q8_0 / ctv q4_0), Qwen3-4B Q4_K_M, c512 chunks16, fa on, wiki.test.raw:
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+Mean PPL(Q)                   :  12.535583 ±   0.613643
+Mean PPL(base)                :  12.498444 ±   0.607345
+Mean ln(PPL(Q)/PPL(base))     :   0.002967 ±   0.004036
+Mean PPL(Q)/PPL(base)         :   1.002972 ±   0.004048
+Mean PPL(Q)-PPL(base)         :   0.037139 ±   0.050715
+Mean    KLD:   0.006314 ±   0.000184
+Maximum KLD:   0.375730
+99.9%   KLD:   0.144919
+Mean    Δp: -0.145 ± 0.035 %
+Maximum Δp: 14.658%
+99.9%   Δp: 12.453%
+RMS Δp    :  2.246 ± 0.106 %
+Same top p: 96.275 ± 0.297 %
+
+K4V8 (ctk q4_0 / ctv q8_0), same setup:
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+Mean PPL(Q)                   :  12.786646 ±   0.627501
+Mean PPL(base)                :  12.498444 ±   0.607345
+Mean ln(PPL(Q)/PPL(base))     :   0.022797 ±   0.006531
+Mean PPL(Q)/PPL(base)         :   1.023059 ±   0.006682
+Mean PPL(Q)-PPL(base)         :   0.288202 ±   0.084774
+Mean    KLD:   0.031252 ±   0.002282
+Maximum KLD:   7.227844
+99.9%   KLD:   1.231715
+Mean    Δp: -0.397 ± 0.081 %
+Maximum Δp: 99.803%
+99.9%   Δp: 37.841%
+RMS Δp    :  5.188 ± 0.335 %
+Same top p: 91.985 ± 0.425 %
