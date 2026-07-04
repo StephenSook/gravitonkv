@@ -1,0 +1,30 @@
+=== MEDIANS (runs 2-4; run 1 = discarded warmup) ===
+kv     ctx       pp_tps    tg_tps tg_spread  peakRSS_MiB rss_spread  KVbuf_MiB
+f16    2048        18.9      13.4      0.17       5170.4        0.2       FAIL  (n=3)
+f16    8192         5.7       6.8      0.03       6040.5        0.0       FAIL  (n=3)
+f16    16384       FAIL      FAIL      FAIL         FAIL       FAIL       FAIL  (n=0)
+q8_0   2048        30.9      11.7      0.02       5035.4        0.2       FAIL  (n=3)
+q8_0   8192        11.6       5.0      0.01       5502.6        0.2       FAIL  (n=3)
+q8_0   16384       FAIL      FAIL      FAIL         FAIL       FAIL       FAIL  (n=0)
+q4_0   2048        30.3      11.7      0.03       4963.6        0.3       FAIL  (n=3)
+q4_0   8192        11.6       5.1      0.01       5214.8        0.2       FAIL  (n=3)
+q4_0   16384       FAIL      FAIL      FAIL         FAIL       FAIL       FAIL  (n=0)
+
+=== DELTAS vs f16 ===
+kv     ctx     d_mem_%   d_tg_%  d_KVbuf_% signal>noise
+q8_0   2048       +2.6    -12.9        n/a          YES
+q8_0   8192       +8.9    -25.8        n/a          YES
+q8_0   16384      FAIL
+q4_0   2048       +4.0    -13.1        n/a          YES
+q4_0   8192      +13.7    -25.2        n/a          YES
+q4_0   16384      FAIL
+
+=== KILL-THRESHOLD READOUT (runbook) ===
+q8_0 @8k peak-mem saving: 8.9% (threshold >=5%) | mem signal exceeds spread: True
+runbook verdict: PASS-leaning (final call needs needle probe + human read)
+
+=== NEEDLE PROBE (8k ctx, 10 planted codes) ===
+f16: 10/10 codes recalled | missed: none
+q8_0: 10/10 codes recalled | missed: none
+q4_0: 10/10 codes recalled | missed: none
+interpretation: f16 high + q4_0 crater = tradeoff story EXISTS (PASS signal); all indistinguishable AND trivial memory savings = KILL signal
