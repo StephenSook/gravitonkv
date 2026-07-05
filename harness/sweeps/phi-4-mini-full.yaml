@@ -1,0 +1,21 @@
+# Full Phi-4-mini matrix: 5 KV configs x 4 contexts.
+sweep: phi-4-mini-full
+llama_cpp_dir: /home/ubuntu/llama.cpp
+model:
+  name: Phi-4-mini
+  file: /home/ubuntu/models/Phi-4-mini-instruct-Q4_K_M.gguf
+  hf_repo: unsloth/Phi-4-mini-instruct-GGUF
+  quant: Q4_K_M
+configs: ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"]
+contexts: [2048, 8192, 16384, 32768]
+reps:
+  2048: 10
+  8192: 10
+  16384: 5
+  32768: 5
+n_gen: 128
+threads: 16
+seed: 42
+output_dir: /home/ubuntu/results
+s3_bucket: gravitonkv-results-741030561008
+shutdown_on_complete: true

@@ -1,0 +1,21 @@
+# Full SmolLM3-3B matrix: 5 KV configs x 4 contexts.
+sweep: smollm3-3b-full
+llama_cpp_dir: /home/ubuntu/llama.cpp
+model:
+  name: SmolLM3-3B
+  file: /home/ubuntu/models/SmolLM3-3B-Q4_K_M.gguf
+  hf_repo: ggml-org/SmolLM3-3B-GGUF
+  quant: Q4_K_M
+configs: ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"]
+contexts: [2048, 8192, 16384, 32768]
+reps:
+  2048: 10
+  8192: 10
+  16384: 5
+  32768: 5
+n_gen: 128
+threads: 16
+seed: 42
+output_dir: /home/ubuntu/results
+s3_bucket: gravitonkv-results-741030561008
+shutdown_on_complete: true

@@ -8,7 +8,9 @@
   "scripts": {
     "validate": "node scripts/validate-results.mjs",
     "gen:dashboard": "node scripts/gen-dashboard-data.mjs",
-    "build:data": "npm run validate && npm run gen:dashboard"
+    "gen:readme": "node scripts/gen-readme-tables.mjs",
+    "check:readme": "node scripts/gen-readme-tables.mjs --check",
+    "build:data": "npm run validate && npm run gen:dashboard && npm run gen:readme"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
