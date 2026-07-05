@@ -111,18 +111,26 @@ def imds(path):
 
 def capture_environment(cfg):
     bin_dir = pathlib.Path(cfg["llama_cpp_dir"]) / "build" / "bin"
-    commit = run(["git", "-C", cfg["llama_cpp_dir"], "rev-parse", "HEAD"]).stdout.strip()
-    if commit != PINNED_COMMIT:
-        sys.exit(f"FATAL: llama.cpp at {commit}, expected pinned {PINNED_COMMIT}")
     # -c 512 is load-bearing: without it llama-completion defaults to the
     # model's native context (262k for Qwen3-4B) and the KV allocation OOMs.
     probe = run([str(bin_dir / "llama-completion"), "-m", cfg["model"]["file"],
                  "-p", "hi", "-n", "1", "-fa", "on", "-c", "512", "-t", str(cfg["threads"])])
     system_info = ""
+    build_hash = ""
     for line in (probe.stderr + probe.stdout).splitlines():
-        if "system_info:" in line:
+        if "system_info:" in line and not system_info:
             system_info = line.split("system_info:", 1)[1].strip()
-            break
+        if "build:" in line and "(" in line and not build_hash:
+            # startup banner form: "build: 9870 (2d973636e)"
+            build_hash = line.split("(", 1)[1].split(")", 1)[0].strip()
+    # Verify the pin against the binary's own banner. A git checkout is not
+    # guaranteed to exist (CI restores cached binaries without .git), and a
+    # parent repo's HEAD must never masquerade as the llama.cpp commit.
+    if not build_hash or not PINNED_COMMIT.startswith(build_hash):
+        git_head = run(["git", "-C", cfg["llama_cpp_dir"], "rev-parse", "HEAD"]).stdout.strip()
+        if git_head != PINNED_COMMIT:
+            sys.exit(f"FATAL: cannot verify pinned commit (banner {build_hash!r}, git {git_head!r}); "
+                     f"expected {PINNED_COMMIT}")
     if "KLEIDIAI = 1" not in system_info:
         sys.exit("FATAL: KLEIDIAI = 1 not present in system_info; refusing to benchmark")
     cpu_model = ""
@@ -146,7 +154,7 @@ def capture_environment(cfg):
         "ram_gb": round(mem_kb / 1048576, 1),
         "kernel": platform.release(),
         "os": os_name,
-        "llama_cpp_commit": commit,
+        "llama_cpp_commit": PINNED_COMMIT,
         "build_flags": "-DCMAKE_BUILD_TYPE=Release -DGGML_CPU_KLEIDIAI=ON",
         "system_info": system_info,
         "backends": "CPU",
