@@ -53,6 +53,56 @@ docs/        methodology notes
 - Measured runs on on-demand Graviton4 instances only. CI runs on GitHub's arm64 runners (Azure Cobalt 100, Neoverse N2): CI validates the harness and never produces findings.
 - Full environment capture (instance type, CPU, kernel, commit, build flags, library versions, seeds, SHA256s) in every result file.
 
+## Query the results from an agent
+
+A read-only MCP server exposes the canonical results. Remote (paste into
+Claude's custom connectors): `https://gravitonkv-mcp.vercel.app/mcp`. Local:
+`npx @gravitonkv/mcp` (stdio). Tools: `get_headline_finding`, `query_results`,
+`compare_configs`, `recommend_config`, `get_methodology`. Every answer carries
+its source cell and rep count.
+
+## Related work and the novelty claim, precisely scoped
+
+Stated fully: this is the first public, reproducible study to sweep llama.cpp
+KV-cache quantization types (f16 / q8_0 / q4_0, symmetric and mixed) on AWS
+Graviton4 (Neoverse V2) CPU across context lengths, with a combined
+prefill/decode/peak-memory/retrieval-quality breakdown and PMU-level mechanism
+analysis using Arm Performix and Linux perf. It is not the first KV-cache
+quantization study, and prior art exists on other Arm hardware; the CPU, the
+platform, and the combined mechanism analysis are the new parts.
+
+- **KVSplit** (github.com/dipampaul17/KVSplit): asymmetric K/V precision on
+  **Apple Silicon via Metal** (GPU-path, not CPU). Reports K8V4 at 59% memory
+  savings with a 0.86% perplexity increase, and that keys are far more
+  quantization-sensitive than values. Our K8V4/K4V8 cells test the same
+  asymmetry on Graviton4 CPU.
+- **llama.cpp issue #8918**: quantized-KV performance degradation reports on
+  **Apple Silicon (Metal)**. Platform-specific prior art for the decode-side
+  cost.
+- **Memoriant DGX Spark benchmark**
+  (github.com/Memoriant/dgx-spark-kv-cache-benchmark): the closest analog, an
+  aarch64 KV-type sweep, but on a **CUDA GPU** (GB10): f16 38.0 / q8_0 25.0 /
+  q4_0 24.0 tok/s decode at 110k context, with prompt throughput identical
+  across cache types. Our pilot shows the CPU regime differs on both speed
+  axes at 8k.
+- **Rethinking Key-Value Cache Compression Techniques for LLM Serving**
+  (arXiv:2503.24000, MLSys 2025): establishes that KV-compression speedups are
+  not guaranteed and depend on the serving regime. This study is the
+  CPU/Graviton empirical instance of that thesis.
+- **KIVI** (arXiv:2402.02750, ICML 2024) and **KVQuant** (arXiv:2401.18079,
+  NeurIPS 2024): the algorithm lineage for asymmetric and per-channel KV
+  quantization, including why keys need more precision than values. Cited for
+  lineage only; neither paper makes claims about the prefill/decode asymmetry
+  measured here.
+- **InnerQ** (arXiv:2602.23200): recent KV-quantization work in the same
+  algorithm family.
+- **RULER** (arXiv:2404.06654, COLM 2024): the design source for the
+  long-context retrieval battery (needle variants, distractors, variable
+  tracking).
+- **Arm, "Running Llama 3 on AWS Graviton4"** (Arm community blog): Graviton4
+  LLM performance content from the platform vendor; covers weight
+  quantization, not KV-cache sweeps.
+
 ## License
 
 MIT. All benchmarked models are Apache 2.0 or MIT (Qwen3-4B-Instruct-2507, Qwen3-1.7B, Qwen3-0.6B, Phi-4-mini, Granite 4.0 micro, SmolLM3-3B).
