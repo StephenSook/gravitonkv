@@ -121,7 +121,7 @@ export default function ParetoBand({ cells }) {
               <Cell
                 key={i}
                 fill={p.config === "f16" ? "transparent" : configColor(p.config)}
-                stroke={p.config === "f16" ? "#ffffff" : "#1a1a19"}
+                stroke={p.config === "f16" ? "#ffffff" : "#0b0e1e"}
                 strokeWidth={2}
                 r={7}
               />

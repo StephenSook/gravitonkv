@@ -64,7 +64,7 @@ function OneMetricChart({ cells, metric, title, unit }) {
               stroke={configColor(c)}
               strokeWidth={2}
               strokeDasharray={c === "f16" ? "5 4" : undefined}
-              dot={{ r: 4, fill: configColor(c), stroke: "#1a1a19", strokeWidth: 2 }}
+              dot={{ r: 4, fill: configColor(c), stroke: "#0b0e1e", strokeWidth: 2 }}
               isAnimationActive={false}
               connectNulls
             >

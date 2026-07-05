@@ -11,10 +11,10 @@ export const CONFIG_COLORS = {
 };
 export const CONFIG_ORDER = ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"];
 export const BASELINE_COLOR = "#ffffff";
-export const TEXT_SECONDARY = "#c3c2b7";
-export const TEXT_MUTED = "#8a897f";
-export const HAIRLINE = "#2e2e2c";
-export const SURFACE_RAISED = "#232322";
+export const TEXT_SECONDARY = "#b7bcce";
+export const TEXT_MUTED = "#7a8098";
+export const HAIRLINE = "#1e2440";
+export const SURFACE_RAISED = "#101430";
 
 export function configColor(config) {
   return config === "f16" ? BASELINE_COLOR : CONFIG_COLORS[config];

@@ -15,7 +15,7 @@ function RepStrip({ raw, color }) {
       <line x1={pad} y1={h / 2} x2={w - pad} y2={h / 2} stroke={HAIRLINE} strokeWidth={1} />
       {raw.map((v, i) => (
         <circle key={i} cx={pad + ((v - min) / span) * (w - 2 * pad)} cy={h / 2} r={4}
-          fill={color} stroke="#1a1a19" strokeWidth={1.5} />
+          fill={color} stroke="#0b0e1e" strokeWidth={1.5} />
       ))}
     </svg>
   );
@@ -51,7 +51,7 @@ export default function ExplorerBand({ cells }) {
               <tr key={key} onClick={() => setOpen(open === key ? null : key)} style={{ cursor: "pointer" }}>
                 <td style={td}>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
-                    <span style={{ width: 9, height: 9, borderRadius: 5, background: configColor(c.config), border: c.config === "f16" ? "2px solid #8a897f" : "none", boxSizing: "border-box" }} />
+                    <span style={{ width: 9, height: 9, borderRadius: 5, background: configColor(c.config), border: c.config === "f16" ? "2px solid #7a8098" : "none", boxSizing: "border-box" }} />
                     {c.config}
                   </span>
                 </td>
@@ -66,7 +66,7 @@ export default function ExplorerBand({ cells }) {
               </tr>,
               open === key && (
                 <tr key={`${key}-detail`}>
-                  <td style={{ ...td, background: "#1f1f1e" }} colSpan={9}>
+                  <td style={{ ...td, background: "#0a0d1c" }} colSpan={9}>
                     <div style={{ display: "flex", gap: 32, flexWrap: "wrap", padding: "4px 0" }}>
                       <span>prefill reps <RepStrip raw={c.prefill.raw} color={configColor(c.config)} /></span>
                       <span>decode reps <RepStrip raw={c.decode.raw} color={configColor(c.config)} /></span>

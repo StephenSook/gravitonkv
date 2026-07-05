@@ -15,10 +15,10 @@ import {
 
 const BETTER = "#0072B2";
 const WORSE = "#D55E00";
-const TEXT_SECONDARY = "#c3c2b7";
-const TEXT_MUTED = "#8a897f";
-const HAIRLINE = "#2e2e2c";
-const SURFACE_RAISED = "#232322";
+const TEXT_SECONDARY = "#b7bcce";
+const TEXT_MUTED = "#7a8098";
+const HAIRLINE = "#1e2440";
+const SURFACE_RAISED = "#101430";
 
 // 4px rounded data-end, square at the zero baseline, whichever way the bar grows.
 function DivergingBar(props) {
