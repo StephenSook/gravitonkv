@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: llama.cpp/build/bin
-          key: llama-cpp-${{ env.LLAMA_CPP_COMMIT }}-kleidiai-v1
+          key: llama-cpp-${{ env.LLAMA_CPP_COMMIT }}-kleidiai-v2
 
       - name: Build llama.cpp at pinned commit with KleidiAI
         if: steps.cache-llama.outputs.cache-hit != 'true'
@@ -52,7 +52,7 @@ jobs:
           cd llama.cpp
           git checkout "$LLAMA_CPP_COMMIT"
           cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_CPU_KLEIDIAI=ON
-          cmake --build build --target llama-bench llama-completion -j "$(nproc)"
+          cmake --build build --target llama-bench llama-completion llama-tokenize -j "$(nproc)"
 
       - name: Cache smoke model
         id: cache-model
