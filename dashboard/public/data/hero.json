@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-05T18:24:40.549Z",
+ "generated_at": "2026-07-05T22:48:59.361Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
@@ -130,6 +130,75 @@
     "prefill_tok_s": 24.18,
     "decode_tok_s": 10.52,
     "peak_memory_mb": 6121.8
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 111.60862354892203,
+   "prefill_pct_stdev": 0.4086938470372321,
+   "decode_pct": -22.178477690288723,
+   "decode_pct_stdev": 0.5286576935841358,
+   "memory_pct": -22.678496430071394,
+   "memory_pct_stdev": 0.004080416745208319,
+   "baseline": {
+    "prefill_tok_s": 6.03,
+    "decode_tok_s": 7.62,
+    "peak_memory_mb": 9524,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 12.76,
+    "decode_tok_s": 5.93,
+    "peak_memory_mb": 7364.1
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 64.81618737029349,
+   "prefill_pct_stdev": 0.13744783345325515,
+   "decode_pct": -16.726446676231465,
+   "decode_pct_stdev": 0.71769977542344,
+   "memory_pct": -4.002940067118632,
+   "memory_pct_stdev": 0.004746843828515683,
+   "baseline": {
+    "prefill_tok_s": 67.46000000000001,
+    "decode_tok_s": 41.82,
+    "peak_memory_mb": 5169.95,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 111.185,
+    "decode_tok_s": 34.825,
+    "peak_memory_mb": 4963
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 102.6106696935301,
+   "prefill_pct_stdev": 0.34662307069507925,
+   "decode_pct": -27.650813259213503,
+   "decode_pct_stdev": 0.42426066235716514,
+   "memory_pct": -13.695137497723564,
+   "memory_pct_stdev": 0.0044734223087490605,
+   "baseline": {
+    "prefill_tok_s": 22.025,
+    "decode_tok_s": 24.285,
+    "peak_memory_mb": 6040.1,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 44.625,
+    "decode_tok_s": 17.57,
+    "peak_memory_mb": 5212.9
    }
   }
  ]
