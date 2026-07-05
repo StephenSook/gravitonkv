@@ -29,6 +29,7 @@ const files = existsSync(resultsDir)
   : [];
 
 const rows = [];
+const cells = [];
 const sources = [];
 for (const f of files) {
   const doc = JSON.parse(readFileSync(join(resultsDir, f), "utf8"));
@@ -38,7 +39,24 @@ for (const f of files) {
     sweep_instance: doc.environment.instance_type,
     cpu: doc.environment.cpu_model,
     commit: doc.environment.llama_cpp_commit,
+    environment: doc.environment,
+    model: doc.model,
   });
+  for (const c of doc.cells) {
+    const m = c.metrics;
+    cells.push({
+      model: doc.model.name,
+      config: c.config,
+      context: c.context,
+      n: m.prefill_tok_s.raw.length,
+      prefill: { median: m.prefill_tok_s.median, stdev: m.prefill_tok_s.stdev, cv: m.prefill_tok_s.cv, raw: m.prefill_tok_s.raw },
+      decode: { median: m.decode_tok_s.median, stdev: m.decode_tok_s.stdev, cv: m.decode_tok_s.cv, raw: m.decode_tok_s.raw },
+      memory: { median: m.peak_memory_mb.median, stdev: m.peak_memory_mb.stdev, cv: m.peak_memory_mb.cv, raw: m.peak_memory_mb.raw },
+      kv_buffer_mb: m.kv_buffer_mb ? m.kv_buffer_mb.median : null,
+      quality: c.quality ?? null,
+      anomalies: c.anomalies ?? [],
+    });
+  }
   const byKey = new Map();
   for (const c of doc.cells) byKey.set(`${c.config}|${c.context}`, c);
   for (const c of doc.cells) {
@@ -87,12 +105,16 @@ const out = {
   generated_at: new Date().toISOString(),
   generated_by: "scripts/gen-dashboard-data.mjs",
   stdev_note: "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
-  sources,
+  sources: sources.map(({ environment, model, ...s }) => s),
   hero,
   rows,
 };
 
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "hero.json"), JSON.stringify(out, null, 1));
-console.log(`gen-dashboard-data: ${rows.length} delta row(s) from ${sources.length} file(s); ` +
+writeFileSync(
+  join(outDir, "bands.json"),
+  JSON.stringify({ generated_at: out.generated_at, generated_by: out.generated_by, sources, cells }, null, 1)
+);
+console.log(`gen-dashboard-data: ${rows.length} delta row(s), ${cells.length} cell(s) from ${sources.length} file(s); ` +
   (hero ? `hero = ${hero.model} ${hero.config} @ ${hero.context}` : "hero = none"));
