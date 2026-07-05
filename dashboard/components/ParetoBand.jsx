@@ -46,7 +46,15 @@ const CTX_LABEL = { 2048: "2k", 8192: "8k", 16384: "16k", 32768: "32k", 131072: 
 
 export default function ParetoBand({ cells }) {
   const contexts = [...new Set(cells.map((c) => c.context))].sort((a, b) => a - b);
-  const [ctx, setCtx] = useState(contexts[contexts.length - 1]);
+  // Default to the most-populated context (largest wins ties) so a partial
+  // matrix opens on a meaningful scatter instead of a lone baseline point.
+  const [ctx, setCtx] = useState(() => {
+    const counts = new Map();
+    for (const c of cells) counts.set(c.context, (counts.get(c.context) ?? 0) + 1);
+    let best = contexts[contexts.length - 1];
+    for (const c of contexts) if ((counts.get(c) ?? 0) >= (counts.get(best) ?? 0)) best = c;
+    return best;
+  });
   const points = useMemo(
     () =>
       cells
