@@ -32,7 +32,7 @@ function seriesFor(cells, metric) {
 function MultiTooltip({ active, payload, label, unit }) {
   if (!active || !payload || !payload.length) return null;
   return (
-    <div style={{ background: SURFACE_RAISED, border: `1px solid ${HAIRLINE}`, borderRadius: 8, padding: "10px 12px", fontSize: 12, color: TEXT_SECONDARY }}>
+    <div style={{ background: SURFACE_RAISED, border: `1px solid ${HAIRLINE}`, borderRadius: 3, padding: "10px 12px", fontSize: 12, color: TEXT_SECONDARY }}>
       <div style={{ color: "#fff", marginBottom: 4 }}>{label} context</div>
       {payload.map((p) => (
         <div key={p.dataKey} style={{ display: "flex", alignItems: "center", gap: 6 }}>

@@ -17,6 +17,9 @@
   --worse: #d55e00;
   --glow: rgba(0, 114, 178, 0.16);
   --radius: 3px;
+  /* motion vocabulary: cubic-out for most moves, expo-out for hairline draws */
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   /* legacy aliases used by chart components */
   --surface: var(--bg);
   --surface-raised: var(--panel);
@@ -115,14 +118,55 @@ a:hover {
   margin-left: 8px;
 }
 .nav .links a {
+  position: relative;
   color: var(--ink-3);
   padding: 4px 2px;
-  border-bottom: 1px solid transparent;
+  transition: color 0.2s var(--ease-out);
 }
-.nav .links a:hover {
+.nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), rgba(86, 180, 233, 0.35));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+@media (hover: hover) {
+  .nav .links a:hover {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav .links a:hover::after {
+    transform: scaleX(1);
+  }
+}
+.nav .links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
   color: var(--ink);
   text-decoration: none;
-  border-bottom-color: var(--accent);
+}
+.nav .links a.active {
+  color: var(--ink);
+}
+.nav .links a.active::after {
+  transform: scaleX(1);
+}
+
+/* scroll-progress hairline riding the nav's bottom edge */
+.nav-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--better), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
 .nav .spacer {
@@ -220,7 +264,7 @@ h1 .worse { color: #f08c4a; }
     0 0 0 1px rgba(0, 114, 178, 0.08), 0 12px 48px -18px var(--glow);
 }
 
-/* blueprint crosshair ticks on panel corners */
+/* blueprint crosshair ticks on panel corners; they grow a touch on hover */
 .chart-card::after {
   content: "";
   position: absolute;
@@ -236,6 +280,16 @@ h1 .worse { color: #f08c4a; }
     linear-gradient(var(--hairline-bright), var(--hairline-bright)) right 0 bottom 0 / 14px 1px,
     linear-gradient(var(--hairline-bright), var(--hairline-bright)) right 0 bottom 0 / 1px 14px;
   background-repeat: no-repeat;
+  transition: background-size 0.25s var(--ease-out);
+}
+@media (hover: hover) {
+  .chart-card:hover::after {
+    background-size:
+      20px 1px, 1px 20px,
+      20px 1px, 1px 20px,
+      20px 1px, 1px 20px,
+      20px 1px, 1px 20px;
+  }
 }
 
 .chart-title {
@@ -273,12 +327,31 @@ h1 .worse { color: #f08c4a; }
 
 section {
   margin-top: 72px;
+  scroll-margin-top: 72px;
 }
 
 .band-head {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 14px;
+  padding-bottom: 10px;
+}
+/* hairline draws in from the left when the band reveals */
+.band-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(86, 180, 233, 0.4), var(--hairline-bright) 40%, transparent 92%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out-expo) 0.1s;
+}
+.reveal.in .band-head::after {
+  transform: scaleX(1);
 }
 .band-no {
   font-family: var(--font-mono), monospace;
@@ -305,8 +378,8 @@ h2 {
 /* ---------- footer ---------- */
 
 .footer {
+  position: relative;
   margin-top: 88px;
-  border-top: 1px solid var(--hairline);
   padding-top: 22px;
   display: flex;
   flex-wrap: wrap;
@@ -315,25 +388,40 @@ h2 {
   font-size: 11.5px;
   color: var(--ink-3);
 }
+/* gradient hairline in place of the old solid top border */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-bright) 18%, var(--hairline-bright) 82%, transparent);
+}
 
 /* ---------- motion ---------- */
 
-.reveal {
+/* Scroll reveal: the wrapper stays put; its direct children rise in with a
+   small stagger (band head, then h2, then the chart card). */
+.reveal > * {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.65s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
 }
-.reveal.in {
+.reveal.in > * {
   opacity: 1;
   transform: none;
 }
+.reveal.in > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal.in > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal.in > *:nth-child(n + 4) { transition-delay: 0.22s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
 }
 .hero-stagger > * {
-  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: rise 0.7s var(--ease-out) both;
 }
 .hero-stagger > *:nth-child(1) { animation-delay: 0.05s; }
 .hero-stagger > *:nth-child(2) { animation-delay: 0.14s; }
@@ -341,16 +429,174 @@ h2 {
 .hero-stagger > *:nth-child(4) { animation-delay: 0.34s; }
 .hero-stagger > *:nth-child(5) { animation-delay: 0.44s; }
 
+/* ---------- micro-interactions ---------- */
+
+/* context-ladder selector buttons (Pareto band) */
+.ctx-btn {
+  background: transparent;
+  color: var(--ink-3);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-family: var(--font-mono), monospace;
+  cursor: pointer;
+  transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out),
+    border-color 0.15s var(--ease-out);
+}
+@media (hover: hover) {
+  .ctx-btn:hover {
+    border-color: var(--hairline-bright);
+    color: var(--ink-2);
+  }
+}
+.ctx-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.ctx-btn.active {
+  background: var(--hairline);
+  color: #fff;
+}
+
+/* explorer table rows */
+.x-row {
+  cursor: pointer;
+  transition: background-color 0.15s var(--ease-out);
+}
+@media (hover: hover) {
+  .x-row:hover {
+    background: rgba(255, 255, 255, 0.025);
+  }
+}
+.row-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-family: var(--font-mono), monospace;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.15s var(--ease-out);
+}
+@media (hover: hover) {
+  .row-toggle:hover {
+    color: var(--ink);
+  }
+}
+.row-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.x-detail-inner {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+  animation: detail-in 0.25s var(--ease-out) both;
+}
+@keyframes detail-in {
+  from { opacity: 0; transform: translateY(-4px); }
+}
+/* rep dots cascade in like an instrument readout */
+.rep-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dot-in 0.3s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 28ms);
+}
+@keyframes dot-in {
+  from { opacity: 0; transform: scale(0.4); }
+}
+
+/* horizontal scroll fades on small screens, where the table overflows */
+.scroll-x {
+  overflow-x: auto;
+}
+@media (max-width: 720px) {
+  .scroll-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+  }
+}
+
+/* legend: hovering one config dims the rest */
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 6px 0 2px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.3s var(--ease-out);
+}
+@media (hover: hover) {
+  .legend:hover > span { opacity: 0.35; }
+  .legend:hover > span:hover { opacity: 1; }
+}
+
+/* chart loading skeleton: panel-toned, shimmer sweep, fixed height (zero CLS) */
+.skel {
+  position: relative;
+  overflow: hidden;
+  background: var(--panel-2);
+  border-radius: var(--radius);
+}
+.skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.045) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shimmer 1.8s var(--ease-out) infinite;
+}
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal, .hero-stagger > * {
+  .reveal > *, .hero-stagger > *, .x-detail-inner, .rep-dot {
     animation: none;
     transition: none;
     opacity: 1;
     transform: none;
   }
   .chart-card, .chart-card:hover { transform: none; }
+  .chart-card::after, .chart-card:hover::after {
+    transition: none;
+    background-size:
+      14px 1px, 1px 14px,
+      14px 1px, 1px 14px,
+      14px 1px, 1px 14px,
+      14px 1px, 1px 14px;
+  }
   .chip .dot { animation: none; }
+  .band-head::after {
+    transition: none;
+    transform: scaleX(1);
+  }
+  .nav .links a, .nav .links a::after, .ctx-btn, .x-row, .legend > span {
+    transition: none;
+  }
+  .skel::after { animation: none; }
 }
 
 @media (max-width: 720px) {

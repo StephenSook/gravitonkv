@@ -3,9 +3,7 @@
 import dynamic from "next/dynamic";
 
 const loading = () => (
-  <div style={{ height: 240, display: "flex", alignItems: "center", justifyContent: "center", color: "#8a897f", fontSize: 13 }}>
-    loading
-  </div>
+  <div className="skel" style={{ height: 240 }} role="status" aria-label="loading" />
 );
 
 export const ParetoBand = dynamic(() => import("./ParetoBand"), { ssr: false, loading });

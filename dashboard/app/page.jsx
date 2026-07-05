@@ -1,15 +1,13 @@
 import HeroChartLoader from "../components/HeroChartLoader";
 import Reveal from "../components/Reveal";
+import Nav from "../components/Nav";
+import CountUp from "../components/CountUp";
 import { ParetoBand, ScalingBand, ExplorerBand } from "../components/BandLoaders";
 import heroData from "../public/data/hero.json";
 import bandsData from "../public/data/bands.json";
 
 const CONTEXT_LABEL = { 2048: "2k", 8192: "8k", 16384: "16k", 32768: "32k", 131072: "128k" };
 const MATRIX_TARGET = 20; // 5 configs x 4 contexts for the current model sweep
-
-function fmt(v) {
-  return `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
-}
 
 function Band({ id, no, kicker, title, children }) {
   return (
@@ -47,22 +45,7 @@ export default function Page() {
 
   return (
     <>
-      <nav className="nav">
-        <span className="wordmark">
-          GRAVITON<b>KV</b>
-        </span>
-        <div className="links">
-          <a href="#tradeoff">01 tradeoff</a>
-          <a href="#scaling">02 scaling</a>
-          <a href="#cells">03 cells</a>
-          <a href="#methodology">04 methodology</a>
-        </div>
-        <span className="spacer" />
-        <span className="chip">
-          <span className="dot" />
-          {statusText}
-        </span>
-      </nav>
+      <Nav statusText={statusText} />
 
       <main>
         {/* Band 1: headline */}
@@ -70,9 +53,9 @@ export default function Page() {
           <p className="hero-kicker">KV-cache quantization on AWS Graviton4 CPU</p>
           <h1>
             Quantizing the KV cache ({hero.config}) at {ctx} context:{" "}
-            <span className="better">{fmt(hero.prefill_pct)} prefill</span>,{" "}
-            <span className="worse">{fmt(hero.decode_pct)} decode</span>,{" "}
-            <span className="better">{fmt(hero.memory_pct)} memory</span> vs f16.
+            <span className="better"><CountUp value={hero.prefill_pct} /> prefill</span>,{" "}
+            <span className="worse"><CountUp value={hero.decode_pct} /> decode</span>,{" "}
+            <span className="better"><CountUp value={hero.memory_pct} /> memory</span> vs f16.
           </h1>
           <div className="provenance">
             <span className="chip"><strong>{hero.model}</strong></span>

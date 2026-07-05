@@ -33,7 +33,7 @@ function PointTooltip({ active, payload }) {
   if (!active || !payload || !payload.length) return null;
   const d = payload[0].payload;
   return (
-    <div style={{ background: SURFACE_RAISED, border: `1px solid ${HAIRLINE}`, borderRadius: 8, padding: "10px 12px", fontSize: 12, color: TEXT_SECONDARY }}>
+    <div style={{ background: SURFACE_RAISED, border: `1px solid ${HAIRLINE}`, borderRadius: 3, padding: "10px 12px", fontSize: 12, color: TEXT_SECONDARY }}>
       <div style={{ color: "#fff", marginBottom: 4 }}>{d.config} @ {d.contextLabel}</div>
       <div>decode: {d.decode.toFixed(1)} tok/s (stdev {d.decodeStdev.toFixed(2)})</div>
       <div>peak memory: {Math.round(d.memory)} MiB</div>
@@ -72,15 +72,8 @@ export default function ParetoBand({ cells }) {
           <button
             key={c}
             onClick={() => setCtx(c)}
-            style={{
-              background: c === ctx ? HAIRLINE : "transparent",
-              color: c === ctx ? "#fff" : TEXT_MUTED,
-              border: `1px solid ${HAIRLINE}`,
-              borderRadius: 6,
-              padding: "3px 10px",
-              fontSize: 12,
-              cursor: "pointer",
-            }}
+            className={`ctx-btn${c === ctx ? " active" : ""}`}
+            aria-pressed={c === ctx}
           >
             {CTX_LABEL[c] ?? c}
           </button>

@@ -67,7 +67,7 @@ function DeltaTooltip({ active, payload }) {
       style={{
         background: SURFACE_RAISED,
         border: `1px solid ${HAIRLINE}`,
-        borderRadius: 8,
+        borderRadius: 3,
         padding: "10px 12px",
         fontSize: 12,
         color: TEXT_SECONDARY,

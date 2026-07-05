@@ -7,9 +7,7 @@ import dynamic from "next/dynamic";
 const HeroDeltaChart = dynamic(() => import("./HeroDeltaChart"), {
   ssr: false,
   loading: () => (
-    <div style={{ height: 340, display: "flex", alignItems: "center", justifyContent: "center", color: "#8a897f", fontSize: 13 }}>
-      loading chart
-    </div>
+    <div className="skel" style={{ height: 340 }} role="status" aria-label="loading chart" />
   ),
 });
 

@@ -15,7 +15,8 @@ function RepStrip({ raw, color }) {
       <line x1={pad} y1={h / 2} x2={w - pad} y2={h / 2} stroke={HAIRLINE} strokeWidth={1} />
       {raw.map((v, i) => (
         <circle key={i} cx={pad + ((v - min) / span) * (w - 2 * pad)} cy={h / 2} r={4}
-          fill={color} stroke="#0b0e1e" strokeWidth={1.5} />
+          fill={color} stroke="#0b0e1e" strokeWidth={1.5}
+          className="rep-dot" style={{ "--i": i }} />
       ))}
     </svg>
   );
@@ -27,8 +28,9 @@ const th = { ...td, color: TEXT_MUTED, fontWeight: 500, textAlign: "left", fontS
 export default function ExplorerBand({ cells }) {
   const [open, setOpen] = useState(null);
   const sorted = [...cells].sort((a, b) => a.context - b.context || a.config.localeCompare(b.config));
+  const toggle = (key) => setOpen(open === key ? null : key);
   return (
-    <div style={{ overflowX: "auto" }}>
+    <div className="scroll-x">
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
           <tr>
@@ -40,7 +42,7 @@ export default function ExplorerBand({ cells }) {
             <th style={th}>KV MiB</th>
             <th style={th}>N</th>
             <th style={th}>worst CV</th>
-            <th style={th}></th>
+            <th style={th}><span className="sr-only">rep details</span></th>
           </tr>
         </thead>
         <tbody>
@@ -48,7 +50,7 @@ export default function ExplorerBand({ cells }) {
             const key = `${c.config}|${c.context}`;
             const worstCv = Math.max(c.prefill.cv, c.decode.cv, c.memory.cv);
             return [
-              <tr key={key} onClick={() => setOpen(open === key ? null : key)} style={{ cursor: "pointer" }}>
+              <tr key={key} className="x-row" onClick={() => toggle(key)}>
                 <td style={td}>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
                     <span style={{ width: 9, height: 9, borderRadius: 5, background: configColor(c.config), border: c.config === "f16" ? "2px solid #7a8098" : "none", boxSizing: "border-box" }} />
@@ -62,12 +64,24 @@ export default function ExplorerBand({ cells }) {
                 <td style={td}>{c.kv_buffer_mb != null ? Math.round(c.kv_buffer_mb) : "–"}</td>
                 <td style={td}>{c.n}</td>
                 <td style={td}>{(worstCv * 100).toFixed(2)}%</td>
-                <td style={{ ...td, color: TEXT_MUTED }}>{open === key ? "close" : "reps"}</td>
+                <td style={{ ...td, color: TEXT_MUTED }}>
+                  <button
+                    className="row-toggle"
+                    aria-expanded={open === key}
+                    aria-controls={`detail-${i}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggle(key);
+                    }}
+                  >
+                    {open === key ? "close" : "reps"}
+                  </button>
+                </td>
               </tr>,
               open === key && (
-                <tr key={`${key}-detail`}>
+                <tr key={`${key}-detail`} id={`detail-${i}`}>
                   <td style={{ ...td, background: "#0a0d1c" }} colSpan={9}>
-                    <div style={{ display: "flex", gap: 32, flexWrap: "wrap", padding: "4px 0" }}>
+                    <div className="x-detail-inner">
                       <span>prefill reps <RepStrip raw={c.prefill.raw} color={configColor(c.config)} /></span>
                       <span>decode reps <RepStrip raw={c.decode.raw} color={configColor(c.config)} /></span>
                       <span style={{ color: TEXT_MUTED, fontSize: 12 }}>
