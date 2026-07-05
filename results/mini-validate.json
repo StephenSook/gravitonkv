@@ -1,0 +1,158 @@
+{
+ "schema_version": "1.0.0",
+ "environment": {
+  "instance_type": "c8g.4xlarge",
+  "cpu_model": "Neoverse-V2 (Graviton4)",
+  "arch": "aarch64",
+  "vcpus": 16,
+  "ram_gb": 30.7,
+  "kernel": "6.17.0-1019-aws",
+  "os": "Ubuntu 24.04.4 LTS",
+  "llama_cpp_commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
+  "build_flags": "-DCMAKE_BUILD_TYPE=Release -DGGML_CPU_KLEIDIAI=ON",
+  "system_info": "n_threads = 16 (n_threads_batch = 16) / 16 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | SVE = 1 | DOTPROD = 1 | SVE_CNT = 16 | OPENMP = 1 | KLEIDIAI = 1 | REPACK = 1 |",
+  "backends": "CPU",
+  "compiler": "gcc",
+  "compiler_version": "13.3.0",
+  "captured_at": "2026-07-04T23:39:49Z"
+ },
+ "model": {
+  "name": "Qwen3-4B-Instruct-2507",
+  "hf_repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+  "quant": "Q4_K_M",
+  "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "model_size_bytes": 2497281120
+ },
+ "cells": [
+  {
+   "config": "f16",
+   "type_k": "f16",
+   "type_v": "f16",
+   "context": 2048,
+   "n_prompt": 2048,
+   "n_gen": 128,
+   "n_depth": 2048,
+   "n_reps": 5,
+   "warmup_discarded": true,
+   "seed": 42,
+   "threads": 16,
+   "flash_attn": true,
+   "metrics": {
+    "prefill_tok_s": {
+     "raw": [
+      62.136978,
+      62.008054,
+      61.76089,
+      61.777429,
+      61.775006
+     ],
+     "median": 61.777429,
+     "mean": 61.89167139999999,
+     "stdev": 0.17138126625101124,
+     "cv": 0.002769052157977612
+    },
+    "decode_tok_s": {
+     "raw": [
+      40.633786,
+      40.790772,
+      41.029211,
+      40.502874,
+      40.193902
+     ],
+     "median": 40.633786,
+     "mean": 40.630109,
+     "stdev": 0.3128792971642561,
+     "cv": 0.007700675800900661
+    },
+    "peak_memory_mb": {
+     "raw": [
+      5489.4,
+      5489.6,
+      5489.8,
+      5489.5,
+      5489.8
+     ],
+     "median": 5489.6,
+     "mean": 5489.62,
+     "stdev": 0.17888543820017638,
+     "cv": 3.258612403047504e-05
+    }
+   },
+   "quality": null,
+   "pmu": null,
+   "anomalies": [],
+   "raw_run_timestamps": [
+    "2026-07-04T23:41:36Z",
+    "2026-07-04T23:43:23Z",
+    "2026-07-04T23:45:10Z",
+    "2026-07-04T23:46:57Z",
+    "2026-07-04T23:48:44Z"
+   ]
+  },
+  {
+   "config": "q8_0/q4_0",
+   "type_k": "q8_0",
+   "type_v": "q4_0",
+   "context": 2048,
+   "n_prompt": 2048,
+   "n_gen": 128,
+   "n_depth": 2048,
+   "n_reps": 5,
+   "warmup_discarded": true,
+   "seed": 42,
+   "threads": 16,
+   "flash_attn": true,
+   "metrics": {
+    "prefill_tok_s": {
+     "raw": [
+      105.666447,
+      105.715923,
+      105.652882,
+      105.682375,
+      105.677603
+     ],
+     "median": 105.677603,
+     "mean": 105.679046,
+     "stdev": 0.023539155231230176,
+     "cv": 0.00022274193534288885
+    },
+    "decode_tok_s": {
+     "raw": [
+      34.186835,
+      34.938377,
+      34.820206,
+      34.776675,
+      34.815788
+     ],
+     "median": 34.815788,
+     "mean": 34.7075762,
+     "stdev": 0.2973257121099679,
+     "cv": 0.008566593944695219
+    },
+    "peak_memory_mb": {
+     "raw": [
+      5126.6,
+      5126.6,
+      5126.5,
+      5126.9,
+      5126.9
+     ],
+     "median": 5126.6,
+     "mean": 5126.7,
+     "stdev": 0.18708286933840537,
+     "cv": 3.649186988480024e-05
+    }
+   },
+   "quality": null,
+   "pmu": null,
+   "anomalies": [],
+   "raw_run_timestamps": [
+    "2026-07-04T23:51:40Z",
+    "2026-07-04T23:52:46Z",
+    "2026-07-04T23:53:52Z",
+    "2026-07-04T23:54:58Z",
+    "2026-07-04T23:56:04Z"
+   ]
+  }
+ ]
+}

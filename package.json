@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-results.mjs",
-    "build:data": "npm run validate"
+    "gen:dashboard": "node scripts/gen-dashboard-data.mjs",
+    "build:data": "npm run validate && npm run gen:dashboard"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
