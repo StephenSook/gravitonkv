@@ -28,12 +28,35 @@ const files = existsSync(resultsDir)
   ? readdirSync(resultsDir).filter((f) => f.endsWith(".json") && f !== "index.json")
   : [];
 
-const rows = [];
-const cells = [];
-const sources = [];
+// The same (model, config, context) cell can exist in more than one results
+// file (a validation sweep and the full matrix). Keep exactly one winner per
+// key: the cell with more kept reps, tiebreak on the newer capture time. The
+// full matrix therefore supersedes mini-validate as its cells land.
+const winners = new Map();
+const docs = [];
 for (const f of files) {
   const doc = JSON.parse(readFileSync(join(resultsDir, f), "utf8"));
   if (doc.fixture_note) continue;
+  docs.push({ file: f, doc });
+  for (const c of doc.cells) {
+    const key = `${doc.model.name}|${c.config}|${c.context}`;
+    const n = c.metrics.prefill_tok_s.raw.length;
+    const at = doc.environment.captured_at ?? "";
+    const prev = winners.get(key);
+    if (!prev || n > prev.n || (n === prev.n && at > prev.at)) {
+      winners.set(key, { cell: c, doc, file: f, n, at });
+    }
+  }
+}
+
+const rows = [];
+const cells = [];
+const sources = [];
+for (const { file: f, doc } of docs) {
+  const winning = doc.cells.filter(
+    (c) => winners.get(`${doc.model.name}|${c.config}|${c.context}`).cell === c
+  );
+  if (winning.length === 0) continue;
   sources.push({
     file: `results/${f}`,
     sweep_instance: doc.environment.instance_type,
@@ -42,7 +65,7 @@ for (const f of files) {
     environment: doc.environment,
     model: doc.model,
   });
-  for (const c of doc.cells) {
+  for (const c of winning) {
     const m = c.metrics;
     cells.push({
       model: doc.model.name,
@@ -57,11 +80,16 @@ for (const f of files) {
       anomalies: c.anomalies ?? [],
     });
   }
+  // Deltas pair a quantized cell with the f16 baseline from the SAME run when
+  // that run has one (apples-to-apples); the cross-file winning baseline is
+  // the fallback for partial-collection states only.
   const byKey = new Map();
   for (const c of doc.cells) byKey.set(`${c.config}|${c.context}`, c);
-  for (const c of doc.cells) {
+  for (const c of winning) {
     if (c.config === "f16") continue;
-    const base = byKey.get(`f16|${c.context}`);
+    const base =
+      byKey.get(`f16|${c.context}`) ??
+      winners.get(`${doc.model.name}|f16|${c.context}`)?.cell;
     if (!base) continue;
     rows.push({
       model: doc.model.name,
