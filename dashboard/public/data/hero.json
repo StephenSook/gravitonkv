@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-05T02:45:13.418Z",
+ "generated_at": "2026-07-05T18:24:40.549Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
@@ -8,29 +8,35 @@
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
+  },
+  {
+   "file": "results/qwen3-4b-full.json",
+   "sweep_instance": "c8g.4xlarge",
+   "cpu": "Neoverse-V2 (Graviton4)",
+   "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   }
  ],
  "hero": {
   "model": "Qwen3-4B-Instruct-2507",
-  "config": "q8_0/q4_0",
-  "context": 2048,
-  "n": 5,
-  "prefill_pct": 71.06183392643293,
-  "prefill_pct_stdev": 0.4760823348804188,
-  "decode_pct": -14.318129253326294,
-  "decode_pct_stdev": 0.9852324597356542,
-  "memory_pct": -6.6125036432526985,
-  "memory_pct_stdev": 0.0045689031949959855,
+  "config": "q8_0",
+  "context": 8192,
+  "n": 10,
+  "prefill_pct": 101.52099886492624,
+  "prefill_pct_stdev": 0.8153776153895117,
+  "decode_pct": -27.83611282684786,
+  "decode_pct_stdev": 0.3704281069531734,
+  "memory_pct": -8.93114352411385,
+  "memory_pct_stdev": 0.004660234617157082,
   "baseline": {
-   "prefill_tok_s": 61.777429,
-   "decode_tok_s": 40.633786,
-   "peak_memory_mb": 5489.6,
-   "n": 5
+   "prefill_tok_s": 22.025,
+   "decode_tok_s": 24.285,
+   "peak_memory_mb": 6040.1,
+   "n": 10
   },
   "quantized": {
-   "prefill_tok_s": 105.677603,
-   "decode_tok_s": 34.815788,
-   "peak_memory_mb": 5126.6
+   "prefill_tok_s": 44.385000000000005,
+   "decode_tok_s": 17.525,
+   "peak_memory_mb": 5500.65
   }
  },
  "rows": [
@@ -55,6 +61,75 @@
     "prefill_tok_s": 105.677603,
     "decode_tok_s": 34.815788,
     "peak_memory_mb": 5126.6
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 68.1811443818559,
+   "prefill_pct_stdev": 0.13842694812944986,
+   "decode_pct": -16.7503586800574,
+   "decode_pct_stdev": 0.6900125070655793,
+   "memory_pct": -2.6112438224741075,
+   "memory_pct_stdev": 0.005103598396055654,
+   "baseline": {
+    "prefill_tok_s": 67.46000000000001,
+    "decode_tok_s": 41.82,
+    "peak_memory_mb": 5169.95,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 113.455,
+    "decode_tok_s": 34.815,
+    "peak_memory_mb": 5034.95
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 101.52099886492624,
+   "prefill_pct_stdev": 0.8153776153895117,
+   "decode_pct": -27.83611282684786,
+   "decode_pct_stdev": 0.3704281069531734,
+   "memory_pct": -8.93114352411385,
+   "memory_pct_stdev": 0.004660234617157082,
+   "baseline": {
+    "prefill_tok_s": 22.025,
+    "decode_tok_s": 24.285,
+    "peak_memory_mb": 6040.1,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 44.385000000000005,
+    "decode_tok_s": 17.525,
+    "peak_memory_mb": 5500.65
+   }
+  },
+  {
+   "model": "Qwen3-4B-Instruct-2507",
+   "config": "q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 110.26086956521736,
+   "prefill_pct_stdev": 0.28666936425448036,
+   "decode_pct": -31.376386170906724,
+   "decode_pct_stdev": 0.25284464797054856,
+   "memory_pct": -14.996250937265687,
+   "memory_pct_stdev": 0.0033808520601510926,
+   "baseline": {
+    "prefill_tok_s": 11.5,
+    "decode_tok_s": 15.33,
+    "peak_memory_mb": 7201.8,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 24.18,
+    "decode_tok_s": 10.52,
+    "peak_memory_mb": 6121.8
    }
   }
  ]

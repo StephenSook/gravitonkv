@@ -30,6 +30,20 @@ Source: `results/mini-validate.json` · llama.cpp `2d973636e` · 16 vCPU Neovers
 | f16 | 2k | 61.78 ± 0.17 | 40.63 ± 0.31 | 5490 | baseline | baseline | baseline | 5 |
 | q8_0/q4_0 | 2k | 105.68 ± 0.02 | 34.82 ± 0.30 | 5127 | +71.1% | -14.3% | -6.6% | 5 |
 
+### Qwen3-4B-Instruct-2507 (Q4_K_M) on c8g.4xlarge
+
+Source: `results/qwen3-4b-full.json` · llama.cpp `2d973636e` · 16 vCPU Neoverse-V2 (Graviton4) · flash attention on · seed 42 · median ± stdev, first rep discarded
+
+| config | context | prefill tok/s | decode tok/s | peak MiB | Δ prefill | Δ decode | Δ memory | N |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| f16 | 2k | 67.46 ± 0.04 | 41.82 ± 0.20 | 5170 | baseline | baseline | baseline | 10 |
+| q8_0 | 2k | 113.45 ± 0.07 | 34.81 ± 0.23 | 5035 | +68.2% | -16.8% | -2.6% | 10 |
+| f16 | 8k | 22.02 ± 0.03 | 24.29 ± 0.08 | 6040 | baseline | baseline | baseline | 10 |
+| q8_0 | 8k | 44.39 ± 0.17 | 17.52 ± 0.07 | 5501 | +101.5% | -27.8% | -8.9% | 10 |
+| f16 | 16k | 11.50 ± 0.02 | 15.33 ± 0.04 | 7202 | baseline | baseline | baseline | 5 |
+| q8_0 | 16k | 24.18 ± 0.01 | 10.52 ± 0.02 | 6122 | +110.3% | -31.4% | -15.0% | 5 |
+| f16 | 32k | 6.03 ± 0.01 | 7.62 ± 0.05 | 9524 | baseline | baseline | baseline | 5 |
+
 <!-- BENCH:END -->
 
 Interactive version: [gravitonkv-web.vercel.app](https://gravitonkv-web.vercel.app)
