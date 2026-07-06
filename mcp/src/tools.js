@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { BUNDLED_DOCS } from "./bundled-data.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -10,16 +11,33 @@ export const CONFIGS = ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"];
 export const CONTEXTS = [2048, 8192, 16384, 32768, 131072];
 export const PRIORITIES = ["speed", "memory", "quality", "balanced"];
 
-export function loadDocs(dataDir) {
-  const dir =
-    dataDir ||
-    process.env.GRAVITONKV_DATA_DIR ||
-    [resolve(here, "../data"), resolve(here, "../../results")].find((d) => existsSync(d));
-  if (!dir || !existsSync(dir)) return [];
+function readDocsFromDir(dir) {
   return readdirSync(dir)
     .filter((f) => f.endsWith(".json") && f !== "index.json")
     .map((f) => JSON.parse(readFileSync(join(dir, f), "utf8")))
     .filter((d) => !d.fixture_note);
+}
+
+// Richest doc first: when a validation sweep and the full matrix both hold a
+// cell for the same config and context, first-match lookups should resolve to
+// the fuller run, not the smaller one.
+function byCellsDesc(docs) {
+  return [...docs].sort((a, b) => (b.cells?.length ?? 0) - (a.cells?.length ?? 0));
+}
+
+export function loadDocs(dataDir) {
+  // An explicit dir (arg or env) always wins, for tests and the npx server.
+  const explicit = dataDir || process.env.GRAVITONKV_DATA_DIR;
+  if (explicit && existsSync(explicit)) return byCellsDesc(readDocsFromDir(explicit));
+  // The statically-imported module is the reliable source in a serverless
+  // bundle where fs-read data/ is not traced.
+  if (Array.isArray(BUNDLED_DOCS) && BUNDLED_DOCS.length) {
+    return byCellsDesc(BUNDLED_DOCS.filter((d) => !d.fixture_note));
+  }
+  // Local-dev fallback: read the on-disk data/ or the repo results/.
+  const dir = [resolve(here, "../data"), resolve(here, "../../results")].find((d) => existsSync(d));
+  if (!dir) return [];
+  return byCellsDesc(readDocsFromDir(dir));
 }
 
 function sourceLine(doc, cell) {
