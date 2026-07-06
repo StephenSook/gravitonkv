@@ -10,22 +10,27 @@ const here = dirname(fileURLToPath(import.meta.url));
 const resultsDir = resolve(here, "../../results");
 const outDir = resolve(here, "../data");
 mkdirSync(outDir, { recursive: true });
-const docs = [];
-let n = 0;
+
+// Refresh data/ from the repo results/ when it is present (local dev). On the
+// Vercel build the repo results/ is not in the build context, so data/ keeps
+// its committed contents and this copy step is simply a no-op.
+let copied = 0;
 if (existsSync(resultsDir)) {
   for (const f of readdirSync(resultsDir)) {
     if (f.endsWith(".json") && f !== "index.json") {
       copyFileSync(join(resultsDir, f), join(outDir, f));
-      docs.push(JSON.parse(readFileSync(join(resultsDir, f), "utf8")));
-      n++;
+      copied++;
     }
   }
 }
 
-// Also inline the canonical docs into a JS module. Vercel's serverless file
-// tracing does not reliably bundle a fs-read data/ dir, so the remote endpoint
-// reads this statically-imported module instead; the stdio/npx server keeps the
-// fs fallback. Committed so the build always has it before next build runs.
+// Inline whatever ended up in data/ into a JS module. Vercel's serverless file
+// tracing does not reliably bundle an fs-read data/ dir, so the remote endpoint
+// imports this module statically instead. Sourcing from data/ (not results/)
+// means the committed data survives a build that has no repo results/.
+const docs = readdirSync(outDir)
+  .filter((f) => f.endsWith(".json") && f !== "index.json")
+  .map((f) => JSON.parse(readFileSync(join(outDir, f), "utf8")));
 const modulePath = resolve(here, "../src/bundled-data.js");
 writeFileSync(
   modulePath,
@@ -33,4 +38,6 @@ writeFileSync(
     "// Regenerate with `npm run sync:data`.\n" +
     `export const BUNDLED_DOCS = ${JSON.stringify(docs)};\n`
 );
-console.log(`sync-data: bundled ${n} canonical result file(s) into data/ and src/bundled-data.js`);
+console.log(
+  `sync-data: copied ${copied} file(s) from results/, bundled ${docs.length} doc(s) from data/ into src/bundled-data.js`
+);
