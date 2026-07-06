@@ -92,7 +92,9 @@
      "cv": 3.4117375720557096e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -176,7 +178,9 @@
      "cv": 3.983442120345479e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -245,7 +249,9 @@
      "cv": 1.8104319200434596e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -309,7 +315,9 @@
      "cv": 3.0066886035596292e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -388,7 +396,10 @@
      "cv": 3.977763050211412e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.003708
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -472,7 +483,10 @@
      "cv": 3.2122665611488305e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.003708
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -541,7 +555,10 @@
      "cv": 3.54140394998036e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.003708
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -605,7 +622,10 @@
      "cv": 4.336780428516233e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.003708
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -684,7 +704,10 @@
      "cv": 3.579234392490861e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.034102
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -768,7 +791,10 @@
      "cv": 3.316471919899844e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.034102
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -837,7 +863,10 @@
      "cv": 1.8031663601267453e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.034102
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -901,7 +930,10 @@
      "cv": 2.879480753069182e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.034102
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -980,7 +1012,10 @@
      "cv": 3.273418432145457e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.006314
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1064,7 +1099,10 @@
      "cv": 3.779960896603169e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.006314
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1133,7 +1171,10 @@
      "cv": 3.636195929926562e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.006314
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1197,7 +1238,10 @@
      "cv": 2.8336000750808396e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.006314
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1276,7 +1320,10 @@
      "cv": 3.801383040771681e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.031252
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1360,7 +1407,10 @@
      "cv": 2.9515654058456942e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.031252
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1429,7 +1479,10 @@
      "cv": 1.4341399317997131e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.031252
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
@@ -1493,7 +1546,10 @@
      "cv": 3.359197408212566e-05
     }
    },
-   "quality": null,
+   "quality": {
+    "niah": 1.0,
+    "kld": 0.031252
+   },
    "pmu": null,
    "anomalies": [],
    "raw_run_timestamps": [
