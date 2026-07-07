@@ -2,7 +2,7 @@ import HeroChartLoader from "../components/HeroChartLoader";
 import Reveal from "../components/Reveal";
 import Nav from "../components/Nav";
 import CountUp from "../components/CountUp";
-import { ParetoBand, ScalingBand, ExplorerBand } from "../components/BandLoaders";
+import ModelBands from "../components/ModelBands";
 import heroData from "../public/data/hero.json";
 import bandsData from "../public/data/bands.json";
 
@@ -38,10 +38,15 @@ export default function Page() {
     );
   }
   const ctx = CONTEXT_LABEL[hero.context] ?? hero.context;
+  const models = bandsData.models ?? [hero.model];
+  const flagship = bandsData.flagship ?? hero.model;
+  const flagshipCells = cells.filter((c) => c.model === flagship).length;
   const statusText =
-    cells.length >= MATRIX_TARGET
-      ? `matrix complete · ${cells.length} cells`
-      : `matrix collecting · ${cells.length}/${MATRIX_TARGET} cells`;
+    models.length > 1
+      ? `${models.length} models · ${cells.length} cells`
+      : flagshipCells >= MATRIX_TARGET
+        ? `matrix complete · ${flagshipCells} cells`
+        : `matrix collecting · ${flagshipCells}/${MATRIX_TARGET} cells`;
 
   return (
     <>
@@ -84,23 +89,7 @@ export default function Page() {
           </p>
         </div>
 
-        <Band id="tradeoff" no="01" kicker="the tradeoff surface" title="Which config should you run?">
-          <div className="chart-card">
-            <ParetoBand cells={cells} />
-          </div>
-        </Band>
-
-        <Band id="scaling" no="02" kicker="context scaling" title="How the trade moves with context length">
-          <div className="chart-card">
-            <ScalingBand cells={cells} />
-          </div>
-        </Band>
-
-        <Band id="cells" no="03" kicker="cell explorer" title="Every cell, down to the raw reps">
-          <div className="chart-card">
-            <ExplorerBand cells={cells} />
-          </div>
-        </Band>
+        <ModelBands cells={cells} models={models} flagship={flagship} />
 
         <Band id="methodology" no="04" kicker="methodology and reproduction" title="How these numbers were made">
           <div className="chart-card" style={{ fontSize: 14, color: "var(--ink-2)" }}>

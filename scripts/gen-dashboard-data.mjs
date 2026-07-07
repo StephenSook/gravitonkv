@@ -117,17 +117,34 @@ for (const { file: f, doc } of docs) {
   }
 }
 
+// The headline stays on the flagship model regardless of how many other model
+// sweeps land later; only that model's rows are eligible for the hero cell.
+const FLAGSHIP = "Qwen3-4B-Instruct-2507";
+// Models present, flagship first, the rest by descending cell count then name.
+const models = [...new Set(cells.map((c) => c.model))].sort((a, b) => {
+  if (a === FLAGSHIP) return -1;
+  if (b === FLAGSHIP) return 1;
+  const ca = cells.filter((c) => c.model === a).length;
+  const cb = cells.filter((c) => c.model === b).length;
+  return cb - ca || a.localeCompare(b);
+});
+
 // Deterministic headline-cell selection: prefer the flagship config and the
 // 8k tier when present, fall back down the lists. No numbers are typed here.
 const CONFIG_PREF = ["q8_0", "q8_0/q4_0", "q4_0", "q4_0/q8_0"];
 const CONTEXT_PREF = [8192, 16384, 32768, 2048];
+const heroModel = models.includes(FLAGSHIP) ? FLAGSHIP : models[0];
 let hero = null;
 outer: for (const ctx of CONTEXT_PREF) {
   for (const cfg of CONFIG_PREF) {
-    hero = rows.find((r) => r.context === ctx && r.config === cfg);
+    hero = rows.find((r) => r.model === heroModel && r.context === ctx && r.config === cfg);
     if (hero) break outer;
   }
 }
+
+// Sources ordered so the flagship's source is first; the hero provenance and
+// methodology table read sources[0].
+sources.sort((a, b) => (a.model.name === heroModel ? -1 : b.model.name === heroModel ? 1 : 0));
 
 const out = {
   generated_at: new Date().toISOString(),
@@ -142,7 +159,13 @@ mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "hero.json"), JSON.stringify(out, null, 1));
 writeFileSync(
   join(outDir, "bands.json"),
-  JSON.stringify({ generated_at: out.generated_at, generated_by: out.generated_by, sources, cells }, null, 1)
+  JSON.stringify(
+    { generated_at: out.generated_at, generated_by: out.generated_by, models, flagship: heroModel, sources, cells },
+    null,
+    1
+  )
 );
-console.log(`gen-dashboard-data: ${rows.length} delta row(s), ${cells.length} cell(s) from ${sources.length} file(s); ` +
-  (hero ? `hero = ${hero.model} ${hero.config} @ ${hero.context}` : "hero = none"));
+console.log(
+  `gen-dashboard-data: ${rows.length} delta row(s), ${cells.length} cell(s), ${models.length} model(s) from ${sources.length} file(s); ` +
+    (hero ? `hero = ${hero.model} ${hero.config} @ ${hero.context}` : "hero = none")
+);

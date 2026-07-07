@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-06T20:32:45.613Z",
+ "generated_at": "2026-07-07T00:01:26.126Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [

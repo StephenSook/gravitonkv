@@ -1,6 +1,10 @@
 {
- "generated_at": "2026-07-06T20:32:45.613Z",
+ "generated_at": "2026-07-07T00:01:26.126Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
+ "models": [
+  "Qwen3-4B-Instruct-2507"
+ ],
+ "flagship": "Qwen3-4B-Instruct-2507",
  "sources": [
   {
    "file": "results/qwen3-4b-full.json",
