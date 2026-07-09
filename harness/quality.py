@@ -64,11 +64,22 @@ def build_needle_prompt(tok_bin, model, context, n_answer=400):
             "checkpoint 1:")
 
 
+def niah_timeout(context):
+    # A 32k prefill on a 3-4B model can exceed an hour on 16 vCPU. The Phi-4-mini
+    # battery died here on 2026-07-09: an uncaught TimeoutExpired at 32k discarded
+    # the whole run's scores.
+    return 3600 if context <= 16384 else 14400
+
+
 def niah_score(bin_dir, cfg, prompt_file, context, type_k, type_v):
-    r = run([str(bin_dir / "llama-completion"), "-m", cfg["model"]["file"],
-             "-c", str(context), "-n", "400", "--temp", "0", "--seed", str(cfg["seed"]),
-             "-t", str(cfg["threads"]), "-ctk", type_k, "-ctv", type_v, "-fa", "on",
-             "-f", str(prompt_file), "-no-cnv", "--no-display-prompt"], timeout=3600)
+    try:
+        r = run([str(bin_dir / "llama-completion"), "-m", cfg["model"]["file"],
+                 "-c", str(context), "-n", "400", "--temp", "0", "--seed", str(cfg["seed"]),
+                 "-t", str(cfg["threads"]), "-ctk", type_k, "-ctv", type_v, "-fa", "on",
+                 "-f", str(prompt_file), "-no-cnv", "--no-display-prompt"],
+                timeout=niah_timeout(context))
+    except subprocess.TimeoutExpired:
+        return None, f"niah timeout after {niah_timeout(context)}s"
     if r.returncode != 0:
         return None, f"niah rc={r.returncode}: {r.stderr[-160:]}"
     text = (r.stdout + r.stderr).lower()
@@ -81,12 +92,15 @@ def kld_vs_f16(bin_dir, cfg, work_dir, type_k, type_v):
     base = work_dir / "kld-base-f16.dat"
     common = [str(bin_dir / "llama-perplexity"), "-m", cfg["model"]["file"], "-f", str(wiki),
               "-c", "512", "--chunks", "16", "-fa", "on", "-t", str(cfg["threads"])]
-    if not base.exists():
-        r = run(common + ["--kl-divergence-base", str(base)], timeout=3600)
-        if r.returncode != 0 or not base.exists():
-            return None, f"kld base rc={r.returncode}: {r.stderr[-160:]}"
-    r = run(common + ["--kl-divergence-base", str(base), "--kl-divergence",
-                      "-ctk", type_k, "-ctv", type_v], timeout=3600)
+    try:
+        if not base.exists():
+            r = run(common + ["--kl-divergence-base", str(base)], timeout=3600)
+            if r.returncode != 0 or not base.exists():
+                return None, f"kld base rc={r.returncode}: {r.stderr[-160:]}"
+        r = run(common + ["--kl-divergence-base", str(base), "--kl-divergence",
+                          "-ctk", type_k, "-ctv", type_v], timeout=3600)
+    except subprocess.TimeoutExpired:
+        return None, "kld timeout after 3600s"
     m = MEAN_KLD_RE.search(r.stdout + r.stderr)
     if not m:
         return None, f"kld parse failure rc={r.returncode}"
@@ -109,8 +123,21 @@ def main():
     work_dir.mkdir(parents=True, exist_ok=True)
     tok_bin = bin_dir / "llama-tokenize"
 
+    bucket = cfg.get("s3_bucket")
+
+    def save(key, value, config_name, ctx=None):
+        # Persist after EVERY score. A crash or timeout later in the battery
+        # must never discard scores already earned (Phi-4-mini, 2026-07-09).
+        for c in doc["cells"]:
+            if c["config"] == config_name and (ctx is None or c["context"] == ctx):
+                q = dict(c.get("quality") or {})
+                q[key] = value
+                c["quality"] = q
+        results_path.write_text(json.dumps(doc, indent=1))
+        if bucket:
+            run(["aws", "s3", "cp", str(results_path), f"s3://{bucket}/{cfg['sweep']}/{results_path.name}"])
+
     # KLD once per config (f16 excluded: it IS the base)
-    kld_by_config = {}
     if not args.skip_kld:
         for config_name, (tk, tv) in CONFIG_TYPES.items():
             if config_name == "f16" or not any(c["config"] == config_name for c in doc["cells"]):
@@ -120,11 +147,10 @@ def main():
             if err:
                 print(f"  {err}", flush=True)
             else:
-                kld_by_config[config_name] = v
+                save("kld", v, config_name)
                 print(f"  mean KLD {v:.6f}", flush=True)
 
     # NIAH per (config, context)
-    niah = {}
     if not args.skip_niah:
         contexts = sorted({c["context"] for c in doc["cells"]})
         for ctx in contexts:
@@ -140,21 +166,9 @@ def main():
                 if err:
                     print(f"  {err}", flush=True)
                 else:
-                    niah[(config_name, ctx)] = score
+                    save("niah", score, config_name, ctx)
                     print(f"  recall {score * 100:.0f}%", flush=True)
 
-    for c in doc["cells"]:
-        q = dict(c.get("quality") or {})
-        if (c["config"], c["context"]) in niah:
-            q["niah"] = niah[(c["config"], c["context"])]
-        if c["config"] in kld_by_config:
-            q["kld"] = kld_by_config[c["config"]]
-        c["quality"] = q or None
-
-    results_path.write_text(json.dumps(doc, indent=1))
-    bucket = cfg.get("s3_bucket")
-    if bucket:
-        run(["aws", "s3", "cp", str(results_path), f"s3://{bucket}/{cfg['sweep']}/{results_path.name}"])
     print(f"quality battery merged into {results_path}", flush=True)
 
 
