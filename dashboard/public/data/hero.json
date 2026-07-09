@@ -1,10 +1,16 @@
 {
- "generated_at": "2026-07-08T18:26:07.342Z",
+ "generated_at": "2026-07-09T17:57:21.590Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
   {
    "file": "results/qwen3-4b-full.json",
+   "sweep_instance": "c8g.4xlarge",
+   "cpu": "Neoverse-V2 (Graviton4)",
+   "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
+  },
+  {
+   "file": "results/phi-4-mini-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
@@ -46,6 +52,374 @@
   }
  },
  "rows": [
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 71.75878795137432,
+   "prefill_pct_stdev": 0.27909014361858847,
+   "decode_pct": -15.773714041279007,
+   "decode_pct_stdev": 0.6582104574644965,
+   "memory_pct": -2.349266037976061,
+   "memory_pct_stdev": 0.0051225191445356585,
+   "baseline": {
+    "prefill_tok_s": 83.495,
+    "decode_tok_s": 46.754999999999995,
+    "peak_memory_mb": 5105.85,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 143.41,
+    "decode_tok_s": 39.379999999999995,
+    "peak_memory_mb": 4985.9
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 104.12573673870335,
+   "prefill_pct_stdev": 0.321888939034299,
+   "decode_pct": -32.08780160857908,
+   "decode_pct_stdev": 0.32236997806415946,
+   "memory_pct": -8.161703430330448,
+   "memory_pct_stdev": 0.003947686722241254,
+   "baseline": {
+    "prefill_tok_s": 30.54,
+    "decode_tok_s": 29.84,
+    "peak_memory_mb": 5879.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 62.34,
+    "decode_tok_s": 20.265,
+    "peak_memory_mb": 5400
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 107.37656157049375,
+   "prefill_pct_stdev": 0.4820297184762218,
+   "decode_pct": -37.30199284619316,
+   "decode_pct_stdev": 0.7445833837658272,
+   "memory_pct": -13.888888888888884,
+   "memory_pct_stdev": 0.0029815145124320185,
+   "baseline": {
+    "prefill_tok_s": 16.81,
+    "decode_tok_s": 19.57,
+    "peak_memory_mb": 6912,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 34.86,
+    "decode_tok_s": 12.27,
+    "peak_memory_mb": 5952
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 111.62528216704288,
+   "prefill_pct_stdev": 0.16134657142392286,
+   "decode_pct": -35.43599257884972,
+   "decode_pct_stdev": 0.6558687685600973,
+   "memory_pct": -21.38107701731915,
+   "memory_pct_stdev": 0.0026602689154857765,
+   "baseline": {
+    "prefill_tok_s": 8.86,
+    "decode_tok_s": 10.78,
+    "peak_memory_mb": 8978.5,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 18.75,
+    "decode_tok_s": 6.96,
+    "peak_memory_mb": 7058.8
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 69.04605066171624,
+   "prefill_pct_stdev": 0.24655505257466914,
+   "decode_pct": -16.244251951662925,
+   "decode_pct_stdev": 1.0366903325917407,
+   "memory_pct": -3.5988131261200373,
+   "memory_pct_stdev": 0.004559618611952762,
+   "baseline": {
+    "prefill_tok_s": 83.495,
+    "decode_tok_s": 46.754999999999995,
+    "peak_memory_mb": 5105.85,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 141.14499999999998,
+    "decode_tok_s": 39.16,
+    "peak_memory_mb": 4922.1
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 104.51866404715129,
+   "prefill_pct_stdev": 0.45358159624367744,
+   "decode_pct": -32.556970509383376,
+   "decode_pct_stdev": 0.31180950197892376,
+   "memory_pct": -12.513818262215338,
+   "memory_pct_stdev": 0.0037814520932154694,
+   "baseline": {
+    "prefill_tok_s": 30.54,
+    "decode_tok_s": 29.84,
+    "peak_memory_mb": 5879.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 62.46,
+    "decode_tok_s": 20.125,
+    "peak_memory_mb": 5144.1
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 111.3622843545509,
+   "prefill_pct_stdev": 0.5236240522863347,
+   "decode_pct": -37.4552887072049,
+   "decode_pct_stdev": 0.6767349313040777,
+   "memory_pct": -21.293402777777782,
+   "memory_pct_stdev": 0.003313129367460031,
+   "baseline": {
+    "prefill_tok_s": 16.81,
+    "decode_tok_s": 19.57,
+    "peak_memory_mb": 6912,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 35.53,
+    "decode_tok_s": 12.24,
+    "peak_memory_mb": 5440.2
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 114.4469525959368,
+   "prefill_pct_stdev": 0.227969314404346,
+   "decode_pct": -35.9925788497217,
+   "decode_pct_stdev": 0.650248806036981,
+   "memory_pct": -32.78610012808375,
+   "memory_pct_stdev": 0.0031744103891613953,
+   "baseline": {
+    "prefill_tok_s": 8.86,
+    "decode_tok_s": 10.78,
+    "peak_memory_mb": 8978.5,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 19,
+    "decode_tok_s": 6.9,
+    "peak_memory_mb": 6034.8
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0/q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 70.53715791364749,
+   "prefill_pct_stdev": 0.2690553518413014,
+   "decode_pct": -16.12661747406693,
+   "decode_pct_stdev": 1.0766697014369664,
+   "memory_pct": -2.9720810442923296,
+   "memory_pct_stdev": 0.004277161191778355,
+   "baseline": {
+    "prefill_tok_s": 83.495,
+    "decode_tok_s": 46.754999999999995,
+    "peak_memory_mb": 5105.85,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 142.39,
+    "decode_tok_s": 39.215,
+    "peak_memory_mb": 4954.1
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0/q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 105.30451866404715,
+   "prefill_pct_stdev": 0.35902635680137773,
+   "decode_pct": -32.27211796246648,
+   "decode_pct_stdev": 0.45301529443771227,
+   "memory_pct": -10.337760846272893,
+   "memory_pct_stdev": 0.003615786316327914,
+   "baseline": {
+    "prefill_tok_s": 30.54,
+    "decode_tok_s": 29.84,
+    "peak_memory_mb": 5879.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 62.7,
+    "decode_tok_s": 20.21,
+    "peak_memory_mb": 5272.05
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0/q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 110.17251635930995,
+   "prefill_pct_stdev": 0.4816360482889711,
+   "decode_pct": -37.50638732754216,
+   "decode_pct_stdev": 0.6787052778723575,
+   "memory_pct": -17.589699074074073,
+   "memory_pct_stdev": 0.0037001928121959218,
+   "baseline": {
+    "prefill_tok_s": 16.81,
+    "decode_tok_s": 19.57,
+    "peak_memory_mb": 6912,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 35.33,
+    "decode_tok_s": 12.23,
+    "peak_memory_mb": 5696.2
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q8_0/q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 114.33408577878103,
+   "prefill_pct_stdev": 0.16270733365098125,
+   "decode_pct": -35.71428571428571,
+   "decode_pct_stdev": 0.6530587504815114,
+   "memory_pct": -27.082474800913293,
+   "memory_pct_stdev": 0.0027730398622927573,
+   "baseline": {
+    "prefill_tok_s": 8.86,
+    "decode_tok_s": 10.78,
+    "peak_memory_mb": 8978.5,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 18.99,
+    "decode_tok_s": 6.93,
+    "peak_memory_mb": 6546.9
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0/q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 70.74076291993532,
+   "prefill_pct_stdev": 0.27750124005349525,
+   "decode_pct": -17.238797989519828,
+   "decode_pct_stdev": 1.1822791141005125,
+   "memory_pct": -2.9720810442923296,
+   "memory_pct_stdev": 0.004570992824338869,
+   "baseline": {
+    "prefill_tok_s": 83.495,
+    "decode_tok_s": 46.754999999999995,
+    "peak_memory_mb": 5105.85,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 142.56,
+    "decode_tok_s": 38.695,
+    "peak_memory_mb": 4954.1
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0/q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 102.96332678454485,
+   "prefill_pct_stdev": 2.144059323232045,
+   "decode_pct": -32.89209115281502,
+   "decode_pct_stdev": 0.35815995474535,
+   "memory_pct": -10.336910491675022,
+   "memory_pct_stdev": 0.002971839870606836,
+   "baseline": {
+    "prefill_tok_s": 30.54,
+    "decode_tok_s": 29.84,
+    "peak_memory_mb": 5879.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 61.985,
+    "decode_tok_s": 20.025,
+    "peak_memory_mb": 5272.1
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0/q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 107.67400356930396,
+   "prefill_pct_stdev": 0.523147336268688,
+   "decode_pct": -37.710781808891156,
+   "decode_pct_stdev": 0.6664641021742251,
+   "memory_pct": -17.59259259259259,
+   "memory_pct_stdev": 0.004102531653614588,
+   "baseline": {
+    "prefill_tok_s": 16.81,
+    "decode_tok_s": 19.57,
+    "peak_memory_mb": 6912,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 34.91,
+    "decode_tok_s": 12.19,
+    "peak_memory_mb": 5696
+   }
+  },
+  {
+   "model": "Phi-4-mini",
+   "config": "q4_0/q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 110.83521444695262,
+   "prefill_pct_stdev": 0.18316252394379337,
+   "decode_pct": -36.08534322820037,
+   "decode_pct_stdev": 0.6493121744171578,
+   "memory_pct": -27.083588572701455,
+   "memory_pct_stdev": 0.0029465310885532225,
+   "baseline": {
+    "prefill_tok_s": 8.86,
+    "decode_tok_s": 10.78,
+    "peak_memory_mb": 8978.5,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 18.68,
+    "decode_tok_s": 6.89,
+    "peak_memory_mb": 6546.8
+   }
+  },
   {
    "model": "Qwen3-0.6B",
    "config": "q8_0",
