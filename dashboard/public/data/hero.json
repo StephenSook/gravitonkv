@@ -1,10 +1,16 @@
 {
- "generated_at": "2026-07-09T17:57:21.590Z",
+ "generated_at": "2026-07-11T02:16:49.932Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
   {
    "file": "results/qwen3-4b-full.json",
+   "sweep_instance": "c8g.4xlarge",
+   "cpu": "Neoverse-V2 (Graviton4)",
+   "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
+  },
+  {
+   "file": "results/granite-4.0-micro-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
@@ -52,6 +58,374 @@
   }
  },
  "rows": [
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 53.95601256783775,
+   "prefill_pct_stdev": 0.1354840919898299,
+   "decode_pct": -16.2902707909665,
+   "decode_pct_stdev": 1.4655227259037265,
+   "memory_pct": -1.8724921979492049,
+   "memory_pct_stdev": 0.004698422929956393,
+   "baseline": {
+    "prefill_tok_s": 87.525,
+    "decode_tok_s": 46.715,
+    "peak_memory_mb": 4261.700000000001,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 134.75,
+    "decode_tok_s": 39.105000000000004,
+    "peak_memory_mb": 4181.9
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 74.63136197875377,
+   "prefill_pct_stdev": 0.13995764732765253,
+   "decode_pct": -31.182212581344903,
+   "decode_pct_stdev": 0.4547629547161678,
+   "memory_pct": -6.4193813304133425,
+   "memory_pct_stdev": 0.004479052741828587,
+   "baseline": {
+    "prefill_tok_s": 31.535,
+    "decode_tok_s": 27.66,
+    "peak_memory_mb": 4748.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 55.07,
+    "decode_tok_s": 19.035,
+    "peak_memory_mb": 4444.05
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 77.07602339181285,
+   "prefill_pct_stdev": 0.17859842867477,
+   "decode_pct": -36.727879799666105,
+   "decode_pct_stdev": 0.16435058664070923,
+   "memory_pct": -11.2057788479348,
+   "memory_pct_stdev": 0.0035710552440826144,
+   "baseline": {
+    "prefill_tok_s": 17.1,
+    "decode_tok_s": 17.97,
+    "peak_memory_mb": 5399,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 30.28,
+    "decode_tok_s": 11.37,
+    "peak_memory_mb": 4794
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 76.43805309734515,
+   "prefill_pct_stdev": 0.37076358304595214,
+   "decode_pct": -40.934579439252325,
+   "decode_pct_stdev": 0.5666498302990195,
+   "memory_pct": -17.98596595998805,
+   "memory_pct_stdev": 0.0038727370868783403,
+   "baseline": {
+    "prefill_tok_s": 9.04,
+    "decode_tok_s": 10.7,
+    "peak_memory_mb": 6698,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 15.95,
+    "decode_tok_s": 6.32,
+    "peak_memory_mb": 5493.3
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 51.876606683804624,
+   "prefill_pct_stdev": 0.14740533317509913,
+   "decode_pct": -16.846837204324107,
+   "decode_pct_stdev": 1.4701444307654674,
+   "memory_pct": -2.8063918154727086,
+   "memory_pct_stdev": 0.005709370495564028,
+   "baseline": {
+    "prefill_tok_s": 87.525,
+    "decode_tok_s": 46.715,
+    "peak_memory_mb": 4261.700000000001,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 132.93,
+    "decode_tok_s": 38.845,
+    "peak_memory_mb": 4142.1
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 72.03107658157603,
+   "prefill_pct_stdev": 0.08917852020212329,
+   "decode_pct": -32.80911062906724,
+   "decode_pct_stdev": 0.3022259627392983,
+   "memory_pct": -9.788582619132846,
+   "memory_pct_stdev": 0.005157278665410819,
+   "baseline": {
+    "prefill_tok_s": 31.535,
+    "decode_tok_s": 27.66,
+    "peak_memory_mb": 4748.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 54.25,
+    "decode_tok_s": 18.585,
+    "peak_memory_mb": 4284.05
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 73.859649122807,
+   "prefill_pct_stdev": 0.47726085814663033,
+   "decode_pct": -38.50862548692264,
+   "decode_pct_stdev": 0.17825071345111154,
+   "memory_pct": -17.12909798110761,
+   "memory_pct_stdev": 0.004664077817389621,
+   "baseline": {
+    "prefill_tok_s": 17.1,
+    "decode_tok_s": 17.97,
+    "peak_memory_mb": 5399,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 29.73,
+    "decode_tok_s": 11.05,
+    "peak_memory_mb": 4474.2
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 72.4557522123894,
+   "prefill_pct_stdev": 0.6276349187258216,
+   "decode_pct": -42.61682242990654,
+   "decode_pct_stdev": 0.568550452334031,
+   "memory_pct": -27.541057031949833,
+   "memory_pct_stdev": 0.0034111126884139777,
+   "baseline": {
+    "prefill_tok_s": 9.04,
+    "decode_tok_s": 10.7,
+    "peak_memory_mb": 6698,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 15.59,
+    "decode_tok_s": 6.14,
+    "peak_memory_mb": 4853.3
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0/q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 53.04770065695512,
+   "prefill_pct_stdev": 0.15004274637525622,
+   "decode_pct": -16.504334796104047,
+   "decode_pct_stdev": 1.2759554303014435,
+   "memory_pct": -2.3382687659854184,
+   "memory_pct_stdev": 0.004883537865021077,
+   "baseline": {
+    "prefill_tok_s": 87.525,
+    "decode_tok_s": 46.715,
+    "peak_memory_mb": 4261.700000000001,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 133.95499999999998,
+    "decode_tok_s": 39.004999999999995,
+    "peak_memory_mb": 4162.05
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0/q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 73.06167750118917,
+   "prefill_pct_stdev": 0.11465126345652397,
+   "decode_pct": -32.013738250180765,
+   "decode_pct_stdev": 0.5686575821987556,
+   "memory_pct": -8.107140600981278,
+   "memory_pct_stdev": 0.005266386250503603,
+   "baseline": {
+    "prefill_tok_s": 31.535,
+    "decode_tok_s": 27.66,
+    "peak_memory_mb": 4748.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 54.575,
+    "decode_tok_s": 18.805,
+    "peak_memory_mb": 4363.9
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0/q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 75.78947368421049,
+   "prefill_pct_stdev": 0.13612094148787968,
+   "decode_pct": -37.45130773511407,
+   "decode_pct_stdev": 0.2529153061447729,
+   "memory_pct": -14.169290609372108,
+   "memory_pct_stdev": 0.004110769843558513,
+   "baseline": {
+    "prefill_tok_s": 17.1,
+    "decode_tok_s": 17.97,
+    "peak_memory_mb": 5399,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 30.06,
+    "decode_tok_s": 11.24,
+    "peak_memory_mb": 4634
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q8_0/q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 74.77876106194692,
+   "prefill_pct_stdev": 0.5119235312434629,
+   "decode_pct": -41.682242990654196,
+   "decode_pct_stdev": 0.5602963058982059,
+   "memory_pct": -22.76201851298896,
+   "memory_pct_stdev": 0.004105985162661589,
+   "baseline": {
+    "prefill_tok_s": 9.04,
+    "decode_tok_s": 10.7,
+    "peak_memory_mb": 6698,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 15.8,
+    "decode_tok_s": 6.24,
+    "peak_memory_mb": 5173.4
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0/q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 53.61325335618392,
+   "prefill_pct_stdev": 0.1447457545014848,
+   "decode_pct": -17.125120411002893,
+   "decode_pct_stdev": 2.7487908841104876,
+   "memory_pct": -2.341788488162022,
+   "memory_pct_stdev": 0.00485832345550028,
+   "baseline": {
+    "prefill_tok_s": 87.525,
+    "decode_tok_s": 46.715,
+    "peak_memory_mb": 4261.700000000001,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 134.45,
+    "decode_tok_s": 38.715,
+    "peak_memory_mb": 4161.9
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0/q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 73.72760424924685,
+   "prefill_pct_stdev": 0.32335141755170854,
+   "decode_pct": -32.57411424439625,
+   "decode_pct_stdev": 0.3633299051059831,
+   "memory_pct": -8.102929099370371,
+   "memory_pct_stdev": 0.005340798697988875,
+   "baseline": {
+    "prefill_tok_s": 31.535,
+    "decode_tok_s": 27.66,
+    "peak_memory_mb": 4748.9,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 54.785,
+    "decode_tok_s": 18.65,
+    "peak_memory_mb": 4364.1
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0/q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 74.6783625730994,
+   "prefill_pct_stdev": 0.5224361578484729,
+   "decode_pct": -38.34168057874234,
+   "decode_pct_stdev": 0.17575771176838365,
+   "memory_pct": -14.165586219670312,
+   "memory_pct_stdev": 0.0036699605076037094,
+   "baseline": {
+    "prefill_tok_s": 17.1,
+    "decode_tok_s": 17.97,
+    "peak_memory_mb": 5399,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 29.87,
+    "decode_tok_s": 11.08,
+    "peak_memory_mb": 4634.2
+   }
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "config": "q4_0/q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 73.11946902654869,
+   "prefill_pct_stdev": 0.5270307912712828,
+   "decode_pct": -42.429906542056074,
+   "decode_pct_stdev": 0.6159298847193927,
+   "memory_pct": -22.766497461928925,
+   "memory_pct_stdev": 0.004239442534162948,
+   "baseline": {
+    "prefill_tok_s": 9.04,
+    "decode_tok_s": 10.7,
+    "peak_memory_mb": 6698,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 15.65,
+    "decode_tok_s": 6.16,
+    "peak_memory_mb": 5173.1
+   }
+  },
   {
    "model": "Phi-4-mini",
    "config": "q8_0",
