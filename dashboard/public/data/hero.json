@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-11T04:24:16.416Z",
+ "generated_at": "2026-07-11T23:56:43.095Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
@@ -29,6 +29,12 @@
   },
   {
    "file": "results/qwen3-1.7b-full.json",
+   "sweep_instance": "c8g.4xlarge",
+   "cpu": "Neoverse-V2 (Graviton4)",
+   "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
+  },
+  {
+   "file": "results/smollm3-3b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
@@ -1896,6 +1902,374 @@
     "prefill_tok_s": 12.72,
     "decode_tok_s": 5.91,
     "peak_memory_mb": 6788.3
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 61.54311508213506,
+   "prefill_pct_stdev": 0.3391614642111559,
+   "decode_pct": -10.283500616305696,
+   "decode_pct_stdev": 3.522023302888862,
+   "memory_pct": -1.694440197727154,
+   "memory_pct_stdev": 0.0060174353202651805,
+   "baseline": {
+    "prefill_tok_s": 107.445,
+    "decode_tok_s": 56.790000000000006,
+    "peak_memory_mb": 3924.6,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 173.57,
+    "decode_tok_s": 50.95,
+    "peak_memory_mb": 3858.1
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 91.99851135094899,
+   "prefill_pct_stdev": 0.4618268812983496,
+   "decode_pct": -25.501694031795687,
+   "decode_pct_stdev": 1.2918690166064484,
+   "memory_pct": -6.25887255575398,
+   "memory_pct_stdev": 0.004934294683267904,
+   "baseline": {
+    "prefill_tok_s": 40.305,
+    "decode_tok_s": 38.370000000000005,
+    "peak_memory_mb": 4367.4,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 77.38499999999999,
+    "decode_tok_s": 28.585,
+    "peak_memory_mb": 4094.05
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 99.14375844975211,
+   "prefill_pct_stdev": 0.12630820692535744,
+   "decode_pct": -27.990525069088037,
+   "decode_pct_stdev": 1.4606739568613591,
+   "memory_pct": -10.986125976937211,
+   "memory_pct_stdev": 0.0027445928694413606,
+   "baseline": {
+    "prefill_tok_s": 22.19,
+    "decode_tok_s": 25.33,
+    "peak_memory_mb": 4951.7,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 44.19,
+    "decode_tok_s": 18.24,
+    "peak_memory_mb": 4407.7
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 101.51515151515152,
+   "prefill_pct_stdev": 0.4303199239338324,
+   "decode_pct": 4.682926829268297,
+   "decode_pct_stdev": 0.8938999489485018,
+   "memory_pct": -17.709252541098795,
+   "memory_pct_stdev": 0.003273442710166941,
+   "baseline": {
+    "prefill_tok_s": 11.88,
+    "decode_tok_s": 10.25,
+    "peak_memory_mb": 6119.4,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 23.94,
+    "decode_tok_s": 10.73,
+    "peak_memory_mb": 5035.7
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 58.657918004560486,
+   "prefill_pct_stdev": 0.34311172673351564,
+   "decode_pct": -14.90579327346364,
+   "decode_pct_stdev": 2.5545414873782035,
+   "memory_pct": -2.6104571166488344,
+   "memory_pct_stdev": 0.005767082034093452,
+   "baseline": {
+    "prefill_tok_s": 107.445,
+    "decode_tok_s": 56.790000000000006,
+    "peak_memory_mb": 3924.6,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 170.47,
+    "decode_tok_s": 48.325,
+    "peak_memory_mb": 3822.1499999999996
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 93.25145763552909,
+   "prefill_pct_stdev": 1.3928550681397185,
+   "decode_pct": -26.192337763878037,
+   "decode_pct_stdev": 1.5959602468731449,
+   "memory_pct": -9.552594220817879,
+   "memory_pct_stdev": 0.0042181255999744665,
+   "baseline": {
+    "prefill_tok_s": 40.305,
+    "decode_tok_s": 38.370000000000005,
+    "peak_memory_mb": 4367.4,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 77.89,
+    "decode_tok_s": 28.32,
+    "peak_memory_mb": 3950.2
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 101.75754844524563,
+   "prefill_pct_stdev": 0.1567068818813374,
+   "decode_pct": -27.279905250690874,
+   "decode_pct_stdev": 1.0930688822754668,
+   "memory_pct": -16.804329826120313,
+   "memory_pct_stdev": 0.0056678282094864705,
+   "baseline": {
+    "prefill_tok_s": 22.19,
+    "decode_tok_s": 25.33,
+    "peak_memory_mb": 4951.7,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 44.77,
+    "decode_tok_s": 18.42,
+    "peak_memory_mb": 4119.6
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 104.2087542087542,
+   "prefill_pct_stdev": 0.4160980408358218,
+   "decode_pct": 5.268292682926812,
+   "decode_pct_stdev": 1.009667282934507,
+   "memory_pct": -27.120305912344346,
+   "memory_pct_stdev": 0.00298533859383861,
+   "baseline": {
+    "prefill_tok_s": 11.88,
+    "decode_tok_s": 10.25,
+    "peak_memory_mb": 6119.4,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 24.26,
+    "decode_tok_s": 10.79,
+    "peak_memory_mb": 4459.8
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0/q4_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 60.17497324212391,
+   "prefill_pct_stdev": 0.33488122555816124,
+   "decode_pct": -14.941010741327709,
+   "decode_pct_stdev": 3.675229277470894,
+   "memory_pct": -2.155633695153647,
+   "memory_pct_stdev": 0.006417849634645133,
+   "baseline": {
+    "prefill_tok_s": 107.445,
+    "decode_tok_s": 56.790000000000006,
+    "peak_memory_mb": 3924.6,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 172.10000000000002,
+    "decode_tok_s": 48.305,
+    "peak_memory_mb": 3840
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0/q4_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 91.91167348964146,
+   "prefill_pct_stdev": 0.49370864402713777,
+   "decode_pct": -24.863174354964833,
+   "decode_pct_stdev": 1.9016499480863425,
+   "memory_pct": -7.906305811237802,
+   "memory_pct_stdev": 0.0046184437870102095,
+   "baseline": {
+    "prefill_tok_s": 40.305,
+    "decode_tok_s": 38.370000000000005,
+    "peak_memory_mb": 4367.4,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 77.35,
+    "decode_tok_s": 28.83,
+    "peak_memory_mb": 4022.1
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0/q4_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 100.58584948174851,
+   "prefill_pct_stdev": 0.11863839348434348,
+   "decode_pct": -27.75365179628898,
+   "decode_pct_stdev": 1.0828755182538323,
+   "memory_pct": -13.896237655754584,
+   "memory_pct_stdev": 0.002827568472242306,
+   "baseline": {
+    "prefill_tok_s": 22.19,
+    "decode_tok_s": 25.33,
+    "peak_memory_mb": 4951.7,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 44.51,
+    "decode_tok_s": 18.3,
+    "peak_memory_mb": 4263.6
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q8_0/q4_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 104.12457912457911,
+   "prefill_pct_stdev": 0.4423539955866477,
+   "decode_pct": 4.975609756097565,
+   "decode_pct_stdev": 0.6384622491699488,
+   "memory_pct": -22.415596300290876,
+   "memory_pct_stdev": 0.0035511490369003838,
+   "baseline": {
+    "prefill_tok_s": 11.88,
+    "decode_tok_s": 10.25,
+    "peak_memory_mb": 6119.4,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 24.25,
+    "decode_tok_s": 10.76,
+    "peak_memory_mb": 4747.7
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0/q8_0",
+   "context": 2048,
+   "n": 10,
+   "prefill_pct": 60.42161105681978,
+   "prefill_pct_stdev": 0.33686885284946566,
+   "decode_pct": -14.694488466279287,
+   "decode_pct_stdev": 2.7763604867561695,
+   "memory_pct": -2.155633695153647,
+   "memory_pct_stdev": 0.0068157831088768404,
+   "baseline": {
+    "prefill_tok_s": 107.445,
+    "decode_tok_s": 56.790000000000006,
+    "peak_memory_mb": 3924.6,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 172.365,
+    "decode_tok_s": 48.445,
+    "peak_memory_mb": 3840
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0/q8_0",
+   "context": 8192,
+   "n": 10,
+   "prefill_pct": 92.14737625604764,
+   "prefill_pct_stdev": 0.45338437636044626,
+   "decode_pct": -25.840500390930433,
+   "decode_pct_stdev": 1.0997233506182493,
+   "memory_pct": -7.908595503045279,
+   "memory_pct_stdev": 0.005717418732671678,
+   "baseline": {
+    "prefill_tok_s": 40.305,
+    "decode_tok_s": 38.370000000000005,
+    "peak_memory_mb": 4367.4,
+    "n": 10
+   },
+   "quantized": {
+    "prefill_tok_s": 77.445,
+    "decode_tok_s": 28.455,
+    "peak_memory_mb": 4022
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0/q8_0",
+   "context": 16384,
+   "n": 5,
+   "prefill_pct": 100.49571879224874,
+   "prefill_pct_stdev": 0.11687321022124417,
+   "decode_pct": -27.279905250690874,
+   "decode_pct_stdev": 0.9836454364070796,
+   "memory_pct": -13.89421814730295,
+   "memory_pct_stdev": 0.004497847012683496,
+   "baseline": {
+    "prefill_tok_s": 22.19,
+    "decode_tok_s": 25.33,
+    "peak_memory_mb": 4951.7,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 44.49,
+    "decode_tok_s": 18.42,
+    "peak_memory_mb": 4263.7
+   }
+  },
+  {
+   "model": "SmolLM3-3B",
+   "config": "q4_0/q8_0",
+   "context": 32768,
+   "n": 5,
+   "prefill_pct": 104.12457912457911,
+   "prefill_pct_stdev": 0.4268661526746917,
+   "decode_pct": 5.756097560975615,
+   "decode_pct_stdev": 0.5845448773932409,
+   "memory_pct": -22.415596300290876,
+   "memory_pct_stdev": 0.004685849819348323,
+   "baseline": {
+    "prefill_tok_s": 11.88,
+    "decode_tok_s": 10.25,
+    "peak_memory_mb": 6119.4,
+    "n": 5
+   },
+   "quantized": {
+    "prefill_tok_s": 24.25,
+    "decode_tok_s": 10.84,
+    "peak_memory_mb": 4747.7
    }
   }
  ]
