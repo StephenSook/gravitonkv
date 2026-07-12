@@ -135,7 +135,10 @@ def main():
                 c["quality"] = q
         results_path.write_text(json.dumps(doc, indent=1))
         if bucket:
-            run(["aws", "s3", "cp", str(results_path), f"s3://{bucket}/{cfg['sweep']}/{results_path.name}"])
+            try:
+                run(["aws", "s3", "cp", str(results_path), f"s3://{bucket}/{cfg['sweep']}/{results_path.name}"])
+            except OSError:
+                pass  # host without a usable aws CLI; the local write above is the source of truth
 
     # KLD once per config (f16 excluded: it IS the base)
     if not args.skip_kld:
