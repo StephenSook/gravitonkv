@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-12T03:03:21.111Z",
+ "generated_at": "2026-07-13T01:52:10.008Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "models": [
   "Qwen3-4B-Instruct-2507",
@@ -1350,7 +1350,9 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1410,7 +1412,9 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1455,7 +1459,9 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1500,7 +1506,9 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "niah": 0.8
+   },
    "anomalies": []
   },
   {
@@ -1560,7 +1568,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.00511,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1620,7 +1631,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.00511,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1665,7 +1679,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.00511,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1710,7 +1727,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.00511,
+    "niah": 0.8
+   },
    "anomalies": []
   },
   {
@@ -1770,7 +1790,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.022506,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1830,7 +1853,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.022506,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1875,7 +1901,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.022506,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -1920,7 +1949,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.022506,
+    "niah": 0.9
+   },
    "anomalies": []
   },
   {
@@ -1980,7 +2012,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.008665,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -2040,7 +2075,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.008665,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -2085,7 +2123,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.008665,
+    "niah": 0.8
+   },
    "anomalies": []
   },
   {
@@ -2130,7 +2171,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.008665,
+    "niah": 0.8
+   },
    "anomalies": []
   },
   {
@@ -2190,7 +2234,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.0185,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -2250,7 +2297,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.0185,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -2295,7 +2345,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.0185,
+    "niah": 1
+   },
    "anomalies": []
   },
   {
@@ -2340,7 +2393,10 @@
     ]
    },
    "kv_buffer_mb": null,
-   "quality": null,
+   "quality": {
+    "kld": 0.0185,
+    "niah": 0.8
+   },
    "anomalies": []
   },
   {
