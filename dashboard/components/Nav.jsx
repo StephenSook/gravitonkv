@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 const SECTIONS = [
   { id: "tradeoff", label: "01 tradeoff" },
   { id: "scaling", label: "02 scaling" },
-  { id: "quality", label: "03 quality" },
-  { id: "cells", label: "04 cells" },
-  { id: "methodology", label: "05 methodology" },
+  { id: "cost", label: "03 cost" },
+  { id: "quality", label: "04 quality" },
+  { id: "cells", label: "05 cells" },
+  { id: "methodology", label: "06 methodology" },
 ];
 
 // Fixed nav with a scrollspy (IntersectionObserver band around the viewport

@@ -165,6 +165,13 @@ writeFileSync(
     1
   )
 );
+
+// Copy the sourced pricing into the dashboard bundle so the cost band can
+// compute $/1M tokens client-side from the committed hourly rate.
+const pricingSrc = join(root, "docs", "pricing.json");
+if (existsSync(pricingSrc)) {
+  writeFileSync(join(outDir, "pricing.json"), readFileSync(pricingSrc, "utf8"));
+}
 console.log(
   `gen-dashboard-data: ${rows.length} delta row(s), ${cells.length} cell(s), ${models.length} model(s) from ${sources.length} file(s); ` +
     (hero ? `hero = ${hero.model} ${hero.config} @ ${hero.context}` : "hero = none")

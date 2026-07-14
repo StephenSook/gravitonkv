@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { ParetoBand, ScalingBand, QualityBand, ExplorerBand } from "./BandLoaders";
+import { ParetoBand, ScalingBand, CostBand, QualityBand, ExplorerBand } from "./BandLoaders";
 
 const BANDS = [
   { id: "tradeoff", no: "01", kicker: "the tradeoff surface", title: "Which config should you run?", Comp: ParetoBand },
   { id: "scaling", no: "02", kicker: "context scaling", title: "How the trade moves with context length", Comp: ScalingBand },
-  { id: "quality", no: "03", kicker: "quality cliffs", title: "Where quantization breaks retrieval", Comp: QualityBand },
-  { id: "cells", no: "04", kicker: "cell explorer", title: "Every cell, down to the raw reps", Comp: ExplorerBand },
+  { id: "cost", no: "03", kicker: "cost economics", title: "The tradeoff, in dollars per million tokens", Comp: CostBand },
+  { id: "quality", no: "04", kicker: "quality cliffs", title: "Where quantization breaks retrieval", Comp: QualityBand },
+  { id: "cells", no: "05", kicker: "cell explorer", title: "Every cell, down to the raw reps", Comp: ExplorerBand },
 ];
 
 // Short display label for a model name, e.g. "Qwen3-4B-Instruct-2507" -> "Qwen3-4B".

@@ -91,7 +91,7 @@ export default function Page() {
 
         <ModelBands cells={cells} models={models} flagship={flagship} />
 
-        <Band id="methodology" no="05" kicker="methodology and reproduction" title="How these numbers were made">
+        <Band id="methodology" no="06" kicker="methodology and reproduction" title="How these numbers were made">
           <div className="chart-card" style={{ fontSize: 14, color: "var(--ink-2)" }}>
             <table style={{ borderCollapse: "collapse" }}>
               <tbody>
