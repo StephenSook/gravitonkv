@@ -43,3 +43,6 @@ tmp/
 
 # Keep the env template tracked
 !.env.example
+
+# Internal build-discipline doc, not for the public repo
+CONSTITUTION.md
