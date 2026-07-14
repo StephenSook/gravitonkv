@@ -405,7 +405,7 @@ Stated fully: this is the first public, reproducible study to sweep llama.cpp
 KV-cache quantization types (f16 / q8_0 / q4_0, symmetric and mixed) on AWS
 Graviton4 (Neoverse V2) CPU across context lengths, with a combined
 prefill/decode/peak-memory/retrieval-quality breakdown and PMU-level mechanism
-analysis using Arm Performix and Linux perf. It is not the first KV-cache
+analysis using Linux perf core-PMU counters. It is not the first KV-cache
 quantization study, and prior art exists on other Arm hardware; the CPU, the
 platform, and the combined mechanism analysis are the new parts.
 
