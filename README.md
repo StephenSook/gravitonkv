@@ -18,6 +18,8 @@ On Graviton4 CPU with flash attention, quantizing the KV cache is a three-way as
 
 The origin pilot (July 4, 2026, m8g.xlarge, 4 vCPU) is preserved in [`results/pilot/RESULTS.md`](results/pilot/RESULTS.md); the numbers above supersede it and are measured on c8g.4xlarge.
 
+**Why the ladder stops at 32k, and what that itself says.** Prefill throughput falls as roughly O(n squared) across the measured 2k to 32k ladder: on this 16 vCPU Graviton4 instance a single Qwen3-4B f16 prefill already takes about 91 minutes at 32k. Extrapolating that measured scaling, one 128k f16 prefill projects to roughly 20 hours, so a rigorous 128k cell at the study's N=5 standard would take days and is deliberately left as a projection rather than a measured cell (evidence tier 3, extrapolation). That projection is the point, not a gap: long-context prefill on CPU is attention-bound, which is exactly the regime where the prefill speedup from quantizing the KV cache matters most.
+
 ### Quality: the key cache dominates
 
 The quality battery is KL divergence of the quantized-KV output distribution against the f16 baseline, NIAH needle retrieval, and RULER-lite variable tracking. It gives one consistent invariant on all six models: the **key** cache precision dominates. Configs that keep 8-bit keys (q8_0 and K8V4) hold KL divergence several times lower than configs that drop to 4-bit keys (q4_0 and K4V8), independent of the value-cache precision. K8V4 (8-bit key, 4-bit value) stays safe on every model measured.
