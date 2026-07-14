@@ -70,6 +70,10 @@ main {
   max-width: 1020px;
   margin: 0 auto;
   padding: 118px 24px 64px;
+  /* Wide tables scroll inside their own .scroll-x container; clip here so a
+     long row can never scroll the whole page sideways on mobile. The sticky
+     nav lives outside main and is unaffected. */
+  overflow-x: clip;
 }
 
 ::selection {
@@ -538,6 +542,15 @@ h2 {
 .ctx-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+/* Larger tap targets on touch-width viewports (picker and export buttons). */
+@media (max-width: 720px) {
+  .ctx-btn {
+    min-height: 36px;
+    padding: 7px 13px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 .ctx-btn.active {
   background: var(--hairline);
