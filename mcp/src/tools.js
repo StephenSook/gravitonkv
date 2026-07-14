@@ -21,7 +21,7 @@ export const PRIORITIES = ["speed", "memory", "quality", "balanced"];
 
 function readDocsFromDir(dir) {
   return readdirSync(dir)
-    .filter((f) => f.endsWith(".json") && f !== "index.json")
+    .filter((f) => f.endsWith(".json") && f !== "index.json" && f !== "pricing.json")
     .map((f) => JSON.parse(readFileSync(join(dir, f), "utf8")))
     .filter((d) => !d.fixture_note);
 }

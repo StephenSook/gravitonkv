@@ -28,13 +28,18 @@ if (existsSync(resultsDir)) {
 // tracing does not reliably bundle an fs-read data/ dir, so the remote endpoint
 // imports this module statically instead. Sourcing from data/ (not results/)
 // means the committed data survives a build that has no repo results/.
+// Copy the sourced pricing into the committed data/ dir (local dev), then read
+// it from there. On the Vercel build the repo docs/ is absent, so data/ keeps
+// its committed pricing.json and the cost fields survive. Excluded from the
+// docs glob below so it is never parsed as a result doc.
+const pricingSrc = resolve(here, "../../docs/pricing.json");
+const pricingDst = join(outDir, "pricing.json");
+if (existsSync(pricingSrc)) copyFileSync(pricingSrc, pricingDst);
+
 const docs = readdirSync(outDir)
-  .filter((f) => f.endsWith(".json") && f !== "index.json")
+  .filter((f) => f.endsWith(".json") && f !== "index.json" && f !== "pricing.json")
   .map((f) => JSON.parse(readFileSync(join(outDir, f), "utf8")));
-// Bundle the sourced pricing too, so the cost fields survive a serverless build
-// with no repo docs/ in context (same reason the docs are inlined).
-const pricingPath = resolve(here, "../../docs/pricing.json");
-const pricing = existsSync(pricingPath) ? JSON.parse(readFileSync(pricingPath, "utf8")) : null;
+const pricing = existsSync(pricingDst) ? JSON.parse(readFileSync(pricingDst, "utf8")) : null;
 const modulePath = resolve(here, "../src/bundled-data.js");
 writeFileSync(
   modulePath,
