@@ -171,11 +171,22 @@ export function compareConfigs(docs, model, context, configs) {
 }
 
 export function recommendConfig(docs, context, priority) {
-  // Transparent scoring over measured cells at the requested context (largest
-  // measured context at or below the request if the exact tier is absent).
-  const measured = docs.flatMap((d) =>
-    d.cells.map((c) => ({ doc: d, cell: c }))
-  );
+  // Scope to ONE model (the flagship) so every delta is within-model, never a
+  // cross-model comparison. Keep one cell per (config, context); docs are
+  // richest-first, so the full matrix wins over a validation sweep.
+  const FLAGSHIP = "Qwen3-4B-Instruct-2507";
+  const scopedDocs = docs.filter((d) => d.model.name === FLAGSHIP);
+  const src = scopedDocs.length ? scopedDocs : docs;
+  const seen = new Set();
+  const measured = [];
+  for (const d of src) {
+    for (const c of d.cells) {
+      const key = `${c.config}|${c.context}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      measured.push({ doc: d, cell: c });
+    }
+  }
   if (!measured.length) return { error: "no canonical results available yet" };
   const ctxs = [...new Set(measured.map((x) => x.cell.context))].sort((a, b) => a - b);
   const ctx = ctxs.filter((c) => c <= context).pop() ?? ctxs[0];
@@ -183,8 +194,11 @@ export function recommendConfig(docs, context, priority) {
   const base = at.find((x) => x.cell.config === "f16");
   if (!base) return { error: `no f16 baseline at ${ctx}` };
   const b = base.cell.metrics;
+  // Never recommend a config whose keys collapse on this model (KLD > 0.5).
+  const COLLAPSE = 0.5;
   const scored = at
     .filter((x) => x.cell.config !== "f16")
+    .filter((x) => { const k = x.cell.quality?.kld; return k == null || k <= COLLAPSE; })
     .map((x) => {
       const m = x.cell.metrics;
       const prefill = pct(m.prefill_tok_s.median, b.prefill_tok_s.median);
@@ -199,9 +213,11 @@ export function recommendConfig(docs, context, priority) {
       return { x, prefill, decode, memory, kld, score };
     })
     .sort((a, b2) => b2.score - a.score);
+  if (!scored.length) return { error: `no quality-safe quantized config at ${ctx}` };
   const w = scored[0];
   return {
     recommendation: w.x.cell.config,
+    model: base.doc.model.name,
     at_context: ctx,
     requested_context: context,
     priority,
@@ -216,8 +232,9 @@ export function recommendConfig(docs, context, priority) {
       memory_pct: +s.memory.toFixed(1),
     })),
     scoring_note:
-      "Transparent formula over measured medians; speed = prefill+decode deltas, memory = memory saving, " +
-      "quality = lowest KLD (or q8_0-K preference while the battery is pending), balanced = memory saving + decode/2 + prefill/4.",
+      "Scoped to the flagship model so deltas are within-model. Transparent formula over measured medians; " +
+      "speed = prefill+decode deltas, memory = memory saving, quality = lowest KLD, " +
+      "balanced = memory saving + decode/2 + prefill/4. Configs whose keys collapse (KLD > 0.5) are excluded.",
     caveat: ctx !== context ? `Requested ${context}; nearest measured tier is ${ctx}. The full matrix adds more tiers.` : undefined,
     source: sourceLine(w.x.doc, w.x.cell),
   };
