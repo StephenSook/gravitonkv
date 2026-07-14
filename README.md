@@ -387,6 +387,13 @@ platform, and the combined mechanism analysis are the new parts.
   LLM performance content from the platform vendor; covers weight
   quantization, not KV-cache sweeps.
 
+Taken together: prior KV-cache-quantization tradeoff data exists on Apple
+Silicon and Metal (KVSplit, llama.cpp issue #8918) and on NVIDIA CUDA
+(Memoriant DGX Spark), while prior Arm and Graviton LLM work quantizes model
+weights rather than the KV cache (including Arm's own Graviton4 blog above).
+None combines CPU-native KV-cache quantization with PMU-level mechanism
+analysis on Graviton4, which is the gap this study fills.
+
 ## License
 
 MIT. All benchmarked models are Apache 2.0 or MIT (Qwen3-4B-Instruct-2507, Qwen3-1.7B, Qwen3-0.6B, Phi-4-mini, Granite 4.0 micro, SmolLM3-3B).
