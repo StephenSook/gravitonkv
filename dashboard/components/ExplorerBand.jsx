@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { configColor, HAIRLINE, TEXT_MUTED, TEXT_SECONDARY } from "./configPalette";
+import DataExport from "./DataExport";
 
 const CTX_LABEL = { 2048: "2k", 8192: "8k", 16384: "16k", 32768: "32k", 131072: "128k" };
 
@@ -30,7 +31,9 @@ export default function ExplorerBand({ cells }) {
   const sorted = [...cells].sort((a, b) => a.context - b.context || a.config.localeCompare(b.config));
   const toggle = (key) => setOpen(open === key ? null : key);
   return (
-    <div className="scroll-x">
+    <>
+      <DataExport model={cells[0]?.model} />
+      <div className="scroll-x">
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
           <tr>
@@ -103,8 +106,10 @@ export default function ExplorerBand({ cells }) {
       </table>
       <p className="chart-note">
         Click a row for rep-level values. Medians of N kept reps, first rep always
-        discarded as warmup. A table view of every chart on this page.
+        discarded as warmup. A table view of every chart on this page; download the
+        exact numbers as CSV above.
       </p>
-    </div>
+      </div>
+    </>
   );
 }
