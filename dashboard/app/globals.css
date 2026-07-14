@@ -258,6 +258,60 @@ h1 .worse { color: #f08c4a; }
   text-decoration: none;
 }
 
+/* recommend-a-config cards */
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.rec-card {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  padding: 14px 16px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.rec-card:hover {
+  border-color: var(--hairline-bright);
+  transform: translateY(-2px);
+}
+.rec-q {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.02em;
+}
+.rec-config {
+  font-family: var(--font-mono), monospace;
+  font-size: 20px;
+  color: var(--ink);
+  margin: 6px 0 2px;
+}
+.rec-kv {
+  font-size: 12px;
+  color: var(--accent);
+}
+.rec-takeaway {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin: 6px 0 10px;
+}
+.rec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rec-tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 2px 7px;
+}
+
 /* ---------- panels ---------- */
 
 .chart-card {

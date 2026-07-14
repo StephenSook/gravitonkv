@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
+import RecommendCards from "./RecommendCards";
 import { ParetoBand, ScalingBand, CostBand, QualityBand, ExplorerBand } from "./BandLoaders";
 
 const BANDS = [
@@ -43,6 +44,9 @@ export default function ModelBands({ cells, models, flagship }) {
           ))}
         </div>
       )}
+      <Reveal>
+        <RecommendCards cells={filtered} />
+      </Reveal>
       {BANDS.map(({ id, no, kicker, title, Comp }) => (
         <section id={id} key={id}>
           <Reveal>
