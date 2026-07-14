@@ -3,9 +3,17 @@
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { BUNDLED_DOCS } from "./bundled-data.js";
+import { BUNDLED_DOCS, BUNDLED_PRICING } from "./bundled-data.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
+
+// Sourced hourly rate for the measured instance; $/1M tokens is derived from
+// it and the measured throughput, never hand-typed. See docs/pricing.json.
+const PRICE_RATE =
+  BUNDLED_PRICING?.instances?.[BUNDLED_PRICING.measured_instance]?.usd_per_hour ?? null;
+function usdPer1M(tps) {
+  return PRICE_RATE != null ? +((PRICE_RATE * 1e6) / (tps * 3600)).toFixed(4) : null;
+}
 
 export const CONFIGS = ["f16", "q8_0", "q4_0", "q8_0/q4_0", "q4_0/q8_0"];
 export const CONTEXTS = [2048, 8192, 16384, 32768, 131072];
@@ -69,6 +77,15 @@ function cellSummary(cell) {
     peak_memory_mb: { median: m.peak_memory_mb.median, stdev: m.peak_memory_mb.stdev },
     n: m.prefill_tok_s.raw.length,
   };
+  const pc = usdPer1M(m.prefill_tok_s.median);
+  const dc = usdPer1M(m.decode_tok_s.median);
+  if (pc != null) {
+    out.cost_usd_per_1m_tokens = {
+      prefill: pc,
+      decode: dc,
+      note: `single-stream (batch 1) on ${BUNDLED_PRICING.measured_instance} at $${PRICE_RATE}/hr, ${BUNDLED_PRICING.region}, retrieved ${BUNDLED_PRICING.retrieved}`,
+    };
+  }
   if (m.kv_buffer_mb) out.kv_buffer_mb = m.kv_buffer_mb.median;
   if (cell.quality) out.quality = cell.quality;
   if (cell.anomalies?.length) out.anomalies = cell.anomalies;
