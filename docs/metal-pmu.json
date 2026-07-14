@@ -1,0 +1,18 @@
+{
+  "session": "c8g.metal-24xl, Graviton4 (Neoverse V2), Qwen3-4B-Instruct-2507 Q4_K_M, 32k context (~31.8k-token fill prompt), flash attention on, seed 42, -t 96",
+  "method": "per-process perf stat core PMU; prefill = -n 1, decode = -n 128",
+  "evidence_tier": 1,
+  "counters": "IPC, frontend-stall cycles (r23), backend-stall cycles (r24), L1D refills, L2D refills",
+  "workloads": [
+    { "workload": "prefill", "config": "f16",  "ipc": 4.67, "frontend_stall_r23": 4.68e12, "backend_stall_r24": 9.33e13, "l1d_refill": 6.51e11, "l2d_refill": 2.26e10 },
+    { "workload": "prefill", "config": "q4_0", "ipc": 3.82, "frontend_stall_r23": 1.22e11, "backend_stall_r24": 2.63e13, "l1d_refill": 8.05e11, "l2d_refill": 5.22e10 },
+    { "workload": "decode",  "config": "f16",  "ipc": 4.67, "frontend_stall_r23": 3.21e12, "backend_stall_r24": 9.48e13, "l1d_refill": 6.90e11, "l2d_refill": 2.73e10 },
+    { "workload": "decode",  "config": "q4_0", "ipc": 3.81, "frontend_stall_r23": 1.36e11, "backend_stall_r24": 2.68e13, "l1d_refill": 8.15e11, "l2d_refill": 5.52e10 }
+  ],
+  "caveats": [
+    "System-wide CMN-700 DRAM-bandwidth counter (arm_cmn/hns_mc_reqs_local_all) was verified available on metal but the per-workload capture was unreliable (multiplexed ~66 percent, physically impossible aggregate byte counts); no DRAM GB/s number is cited, the memory-bound conclusion rests on the per-process backend-stall evidence.",
+    "L2D refills are higher for q4 than f16; do not lean on the refill-count delta, the backend-stall-cycle reduction is the load-bearing signal.",
+    "Metal run used 96 threads for feasibility; absolute throughput numbers in the study are the 16-thread c8g measurements, the mechanism is a thread-count-independent ratio.",
+    "SPE memory-access profiling failed (root volume filled mid-record); the core-PMU backend-stall evidence does not need it."
+  ]
+}
