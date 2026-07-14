@@ -48,6 +48,9 @@ body {
   font-family: var(--font-sans), -apple-system, sans-serif;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  /* Instrument-grade numerals: fixed-width digits so numbers align in columns
+     across tables, stat tiles, and chart labels. */
+  font-variant-numeric: tabular-nums;
 }
 
 /* film-grain overlay */
