@@ -85,7 +85,7 @@ export default function ExplorerBand({ cells }) {
                       <span>prefill reps <RepStrip raw={c.prefill.raw} color={configColor(c.config)} /></span>
                       <span>decode reps <RepStrip raw={c.decode.raw} color={configColor(c.config)} /></span>
                       <span style={{ color: TEXT_MUTED, fontSize: 12 }}>
-                        {c.quality ? `NIAH ${c.quality.niah != null ? (c.quality.niah * 100).toFixed(0) + "%" : "–"} · ppl ${c.quality.perplexity ?? "–"}` : "quality battery pending"}
+                        {c.quality ? `NIAH ${c.quality.niah != null ? (c.quality.niah * 100).toFixed(0) + "%" : "–"} · RULER-vt ${c.quality.ruler_vt != null ? (c.quality.ruler_vt * 100).toFixed(0) + "%" : "–"} · KLD ${c.quality.kld != null ? c.quality.kld.toFixed(3) : "–"}` : "quality battery pending"}
                         {c.anomalies.length > 0 ? ` · anomalies: ${c.anomalies.join("; ")}` : ""}
                       </span>
                     </div>
