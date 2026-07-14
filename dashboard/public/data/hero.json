@@ -1,40 +1,49 @@
 {
- "generated_at": "2026-07-14T15:54:32.185Z",
+ "generated_at": "2026-07-14T16:27:10.102Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
+ "repo": "https://github.com/StephenSook/gravitonkv",
+ "commit": "1baf1af28ea972b6f79eaf25b60a7d321010aadc",
+ "ci_url": "https://github.com/StephenSook/gravitonkv/actions",
  "stdev_note": "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
  "sources": [
   {
    "file": "results/qwen3-4b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   },
   {
    "file": "results/granite-4.0-micro-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   },
   {
    "file": "results/phi-4-mini-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   },
   {
    "file": "results/qwen3-0.6b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   },
   {
    "file": "results/qwen3-1.7b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"
   },
   {
    "file": "results/smollm3-3b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f"

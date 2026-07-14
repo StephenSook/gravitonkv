@@ -8,12 +8,24 @@
 // raw rep stdevs via the ratio approximation and labeled as propagated.
 
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const resultsDir = join(root, "results");
 const outDir = join(root, "dashboard", "public", "data");
+// Provenance for reproducibility-linking: every number on the dashboard can
+// point back to the exact committed source file at this commit, plus CI.
+const REPO = "https://github.com/StephenSook/gravitonkv";
+let COMMIT = null;
+try {
+  COMMIT = execFileSync("git", ["rev-parse", "HEAD"], { cwd: root }).toString().trim();
+} catch {
+  COMMIT = null;
+}
+const blobRef = COMMIT || "main";
+const CI_URL = `${REPO}/actions`;
 
 function pctDelta(q, f) {
   return (q.median / f.median - 1) * 100;
@@ -59,6 +71,7 @@ for (const { file: f, doc } of docs) {
   if (winning.length === 0) continue;
   sources.push({
     file: `results/${f}`,
+    results_url: `${REPO}/blob/${blobRef}/results/${f}`,
     sweep_instance: doc.environment.instance_type,
     cpu: doc.environment.cpu_model,
     commit: doc.environment.llama_cpp_commit,
@@ -71,6 +84,7 @@ for (const { file: f, doc } of docs) {
       model: doc.model.name,
       config: c.config,
       context: c.context,
+      results_url: `${REPO}/blob/${blobRef}/results/${f}`,
       n: m.prefill_tok_s.raw.length,
       prefill: { median: m.prefill_tok_s.median, stdev: m.prefill_tok_s.stdev, cv: m.prefill_tok_s.cv, raw: m.prefill_tok_s.raw },
       decode: { median: m.decode_tok_s.median, stdev: m.decode_tok_s.stdev, cv: m.decode_tok_s.cv, raw: m.decode_tok_s.raw },
@@ -149,6 +163,9 @@ sources.sort((a, b) => (a.model.name === heroModel ? -1 : b.model.name === heroM
 const out = {
   generated_at: new Date().toISOString(),
   generated_by: "scripts/gen-dashboard-data.mjs",
+  repo: REPO,
+  commit: COMMIT,
+  ci_url: CI_URL,
   stdev_note: "percentage stdevs are propagated from rep-level stdevs (ratio approximation)",
   sources: sources.map(({ environment, model, ...s }) => s),
   hero,
@@ -160,7 +177,7 @@ writeFileSync(join(outDir, "hero.json"), JSON.stringify(out, null, 1));
 writeFileSync(
   join(outDir, "bands.json"),
   JSON.stringify(
-    { generated_at: out.generated_at, generated_by: out.generated_by, models, flagship: heroModel, sources, cells },
+    { generated_at: out.generated_at, generated_by: out.generated_by, repo: REPO, commit: COMMIT, ci_url: CI_URL, models, flagship: heroModel, sources, cells },
     null,
     1
   )

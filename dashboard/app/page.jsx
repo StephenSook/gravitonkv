@@ -68,6 +68,11 @@ export default function Page() {
             <span className="chip">N={hero.n} · warmup discarded</span>
             <span className="chip">llama.cpp {src.commit.slice(0, 9)}</span>
             <span className="chip">KleidiAI on · fa on · seed 42</span>
+            {bandsData.commit && (
+              <a className="chip chip-link" href={`${bandsData.repo}/commit/${bandsData.commit}`} target="_blank" rel="noreferrer">
+                data @ {bandsData.commit.slice(0, 7)} ↗
+              </a>
+            )}
           </div>
           <div className="chart-card">
             <p className="chart-title">
@@ -81,11 +86,16 @@ export default function Page() {
             </p>
           </div>
           <p className="status-line">
-            The full five-config, four-context, six-model matrix is being collected on
-            c8g (Graviton4); every band regenerates from the canonical results as cells
-            land. Every number on this page is generated from{" "}
-            <a href="https://github.com/StephenSook/gravitonkv">the public repo</a> by
-            script; nothing is hand-typed.
+            The five-config, four-context, six-model matrix is complete on c8g
+            (Graviton4); every band is generated from the canonical results by script,
+            nothing is hand-typed. Every number traces to its exact committed source:{" "}
+            {bandsData.commit && (
+              <>
+                <a href={`${bandsData.repo}/commit/${bandsData.commit}`} target="_blank" rel="noreferrer">commit {bandsData.commit.slice(0, 7)}</a>,{" "}
+                <a href={bandsData.ci_url} target="_blank" rel="noreferrer">the CI runs</a>,{" "}
+                and the per-model source files in the methodology section.
+              </>
+            )}
           </p>
         </div>
 
@@ -120,13 +130,35 @@ export default function Page() {
 cd gravitonkv/harness
 ./run_sweep.sh --config sweeps/mini-validate.yaml`}
             </pre>
+            {bandsData.commit && (
+              <>
+                <p style={{ marginTop: 16 }}>
+                  Every number traces to its exact committed source. The data on this page was
+                  generated from{" "}
+                  <a href={`${bandsData.repo}/commit/${bandsData.commit}`} target="_blank" rel="noreferrer">
+                    commit {bandsData.commit.slice(0, 7)}
+                  </a>
+                  ; each per-model result file:
+                </p>
+                <ul style={{ margin: "8px 0 0", paddingLeft: 18, fontFamily: "var(--font-mono)", fontSize: 12.5, lineHeight: 1.7 }}>
+                  {bandsData.sources.map((s) => (
+                    <li key={s.file}>
+                      <a href={s.results_url} target="_blank" rel="noreferrer">{s.file}</a>
+                      {" — "}
+                      {s.model.name}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             <p style={{ marginTop: 12 }}>
               Ask the data directly: a read-only MCP server serves these results. Remote
               endpoint <code style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}>https://gravitonkv-mcp.vercel.app/mcp</code>{" "}
               (paste into Claude's custom connectors) or <code style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}>npx @gravitonkv/mcp</code>.
             </p>
             <p style={{ marginTop: 12 }}>
-              CI runs this harness end to end on GitHub's arm64 runners (Azure Cobalt 100,
+              <a href={bandsData.ci_url ?? "https://github.com/StephenSook/gravitonkv/actions"} target="_blank" rel="noreferrer">CI</a>{" "}
+              runs this harness end to end on GitHub's arm64 runners (Azure Cobalt 100,
               Neoverse N2) and validates the output against the canonical JSON schema on
               every push. CI proves the harness; it never produces findings: headline
               numbers come only from Graviton4.
@@ -144,6 +176,9 @@ cd gravitonkv/harness
         <footer className="footer">
           <span>GravitonKV · MIT</span>
           <a href="https://github.com/StephenSook/gravitonkv">repository</a>
+          {bandsData.commit && (
+            <a href={`${bandsData.repo}/commit/${bandsData.commit}`} target="_blank" rel="noreferrer">data @ {bandsData.commit.slice(0, 7)}</a>
+          )}
           <a href="https://gravitonkv-mcp.vercel.app">mcp server</a>
           <span>llama.cpp pin {src.commit.slice(0, 9)}</span>
           <span>generated {bandsData.generated_at.slice(0, 10)}</span>

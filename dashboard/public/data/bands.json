@@ -1,6 +1,9 @@
 {
- "generated_at": "2026-07-14T15:54:32.185Z",
+ "generated_at": "2026-07-14T16:27:10.102Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
+ "repo": "https://github.com/StephenSook/gravitonkv",
+ "commit": "1baf1af28ea972b6f79eaf25b60a7d321010aadc",
+ "ci_url": "https://github.com/StephenSook/gravitonkv/actions",
  "models": [
   "Qwen3-4B-Instruct-2507",
   "Granite-4.0-micro",
@@ -13,6 +16,7 @@
  "sources": [
   {
    "file": "results/qwen3-4b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -42,6 +46,7 @@
   },
   {
    "file": "results/granite-4.0-micro-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -71,6 +76,7 @@
   },
   {
    "file": "results/phi-4-mini-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -100,6 +106,7 @@
   },
   {
    "file": "results/qwen3-0.6b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -129,6 +136,7 @@
   },
   {
    "file": "results/qwen3-1.7b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -158,6 +166,7 @@
   },
   {
    "file": "results/smollm3-3b-full.json",
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "sweep_instance": "c8g.4xlarge",
    "cpu": "Neoverse-V2 (Graviton4)",
    "commit": "2d973636e292ee6f75fadcf08d29cb33511f509f",
@@ -191,6 +200,7 @@
    "model": "Granite-4.0-micro",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 87.525,
@@ -254,6 +264,7 @@
    "model": "Granite-4.0-micro",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 31.535,
@@ -317,6 +328,7 @@
    "model": "Granite-4.0-micro",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 17.1,
@@ -365,6 +377,7 @@
    "model": "Granite-4.0-micro",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 9.04,
@@ -413,6 +426,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 134.75,
@@ -477,6 +491,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 55.07,
@@ -541,6 +556,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 30.28,
@@ -590,6 +606,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 15.95,
@@ -639,6 +656,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 132.93,
@@ -703,6 +721,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 54.25,
@@ -767,6 +786,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 29.73,
@@ -816,6 +836,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 15.59,
@@ -865,6 +886,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 133.95499999999998,
@@ -929,6 +951,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 54.575,
@@ -993,6 +1016,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 30.06,
@@ -1042,6 +1066,7 @@
    "model": "Granite-4.0-micro",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 15.8,
@@ -1091,6 +1116,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 134.45,
@@ -1155,6 +1181,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 10,
    "prefill": {
     "median": 54.785,
@@ -1219,6 +1246,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 29.87,
@@ -1268,6 +1296,7 @@
    "model": "Granite-4.0-micro",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/granite-4.0-micro-full.json",
    "n": 5,
    "prefill": {
     "median": 15.65,
@@ -1317,6 +1346,7 @@
    "model": "Phi-4-mini",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 83.495,
@@ -1380,6 +1410,7 @@
    "model": "Phi-4-mini",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 30.54,
@@ -1443,6 +1474,7 @@
    "model": "Phi-4-mini",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 16.81,
@@ -1491,6 +1523,7 @@
    "model": "Phi-4-mini",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 8.86,
@@ -1539,6 +1572,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 143.41,
@@ -1603,6 +1637,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 62.34,
@@ -1667,6 +1702,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 34.86,
@@ -1716,6 +1752,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 18.75,
@@ -1765,6 +1802,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 141.14499999999998,
@@ -1829,6 +1867,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 62.46,
@@ -1893,6 +1932,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 35.53,
@@ -1942,6 +1982,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 19,
@@ -1991,6 +2032,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 142.39,
@@ -2055,6 +2097,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 62.7,
@@ -2119,6 +2162,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 35.33,
@@ -2168,6 +2212,7 @@
    "model": "Phi-4-mini",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 18.99,
@@ -2217,6 +2262,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 142.56,
@@ -2281,6 +2327,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 10,
    "prefill": {
     "median": 61.985,
@@ -2345,6 +2392,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 34.91,
@@ -2394,6 +2442,7 @@
    "model": "Phi-4-mini",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/phi-4-mini-full.json",
    "n": 5,
    "prefill": {
     "median": 18.68,
@@ -2443,6 +2492,7 @@
    "model": "Qwen3-0.6B",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 201.175,
@@ -2506,6 +2556,7 @@
    "model": "Qwen3-0.6B",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 59.025,
@@ -2569,6 +2620,7 @@
    "model": "Qwen3-0.6B",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 30.71,
@@ -2617,6 +2669,7 @@
    "model": "Qwen3-0.6B",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 15.89,
@@ -2665,6 +2718,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 445.23,
@@ -2729,6 +2783,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 131.03500000000003,
@@ -2793,6 +2848,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 67.15,
@@ -2842,6 +2898,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 34.31,
@@ -2891,6 +2948,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 431.28499999999997,
@@ -2955,6 +3013,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 131.72,
@@ -3019,6 +3078,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 68.37,
@@ -3068,6 +3128,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 34.77,
@@ -3117,6 +3178,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 439.42499999999995,
@@ -3181,6 +3243,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 132.055,
@@ -3245,6 +3308,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 67.8,
@@ -3294,6 +3358,7 @@
    "model": "Qwen3-0.6B",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 34.72,
@@ -3343,6 +3408,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 438.935,
@@ -3407,6 +3473,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 10,
    "prefill": {
     "median": 130.28,
@@ -3471,6 +3538,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 67.16,
@@ -3520,6 +3588,7 @@
    "model": "Qwen3-0.6B",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-0.6b-full.json",
    "n": 5,
    "prefill": {
     "median": 34.16,
@@ -3569,6 +3638,7 @@
    "model": "Qwen3-1.7B",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 214.83,
@@ -3632,6 +3702,7 @@
    "model": "Qwen3-1.7B",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 84.015,
@@ -3695,6 +3766,7 @@
    "model": "Qwen3-1.7B",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 49.15,
@@ -3743,6 +3815,7 @@
    "model": "Qwen3-1.7B",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 26.13,
@@ -3791,6 +3864,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 363.39,
@@ -3855,6 +3929,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 172.91,
@@ -3919,6 +3994,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 99.73,
@@ -3968,6 +4044,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 55.23,
@@ -4017,6 +4094,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 357.96000000000004,
@@ -4081,6 +4159,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 170.64999999999998,
@@ -4145,6 +4224,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 100.44,
@@ -4194,6 +4274,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 56.35,
@@ -4243,6 +4324,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 361.495,
@@ -4307,6 +4389,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 172.35,
@@ -4371,6 +4454,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 100.55,
@@ -4420,6 +4504,7 @@
    "model": "Qwen3-1.7B",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 55.86,
@@ -4469,6 +4554,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 361.045,
@@ -4533,6 +4619,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 10,
    "prefill": {
     "median": 171.135,
@@ -4597,6 +4684,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 99.5,
@@ -4646,6 +4734,7 @@
    "model": "Qwen3-1.7B",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-1.7b-full.json",
    "n": 5,
    "prefill": {
     "median": 55.29,
@@ -4695,6 +4784,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 67.46000000000001,
@@ -4759,6 +4849,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 22.025,
@@ -4823,6 +4914,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 11.5,
@@ -4871,6 +4963,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 6.03,
@@ -4919,6 +5012,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 113.455,
@@ -4984,6 +5078,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 44.385000000000005,
@@ -5049,6 +5144,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.18,
@@ -5099,6 +5195,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 12.76,
@@ -5148,6 +5245,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 111.185,
@@ -5213,6 +5311,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 44.625,
@@ -5278,6 +5377,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.64,
@@ -5328,6 +5428,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 12.93,
@@ -5377,6 +5478,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 112.57499999999999,
@@ -5442,6 +5544,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 44.76,
@@ -5507,6 +5610,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.5,
@@ -5557,6 +5661,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 12.89,
@@ -5606,6 +5711,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 112.61500000000001,
@@ -5671,6 +5777,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 10,
    "prefill": {
     "median": 44.224999999999994,
@@ -5736,6 +5843,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.22,
@@ -5786,6 +5894,7 @@
    "model": "Qwen3-4B-Instruct-2507",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/qwen3-4b-full.json",
    "n": 5,
    "prefill": {
     "median": 12.72,
@@ -5835,6 +5944,7 @@
    "model": "SmolLM3-3B",
    "config": "f16",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 107.445,
@@ -5898,6 +6008,7 @@
    "model": "SmolLM3-3B",
    "config": "f16",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 40.305,
@@ -5961,6 +6072,7 @@
    "model": "SmolLM3-3B",
    "config": "f16",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 22.19,
@@ -6009,6 +6121,7 @@
    "model": "SmolLM3-3B",
    "config": "f16",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 11.88,
@@ -6057,6 +6170,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 173.57,
@@ -6121,6 +6235,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 77.38499999999999,
@@ -6185,6 +6300,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 44.19,
@@ -6234,6 +6350,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 23.94,
@@ -6283,6 +6400,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 170.47,
@@ -6347,6 +6465,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 77.89,
@@ -6411,6 +6530,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 44.77,
@@ -6460,6 +6580,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.26,
@@ -6509,6 +6630,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0/q4_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 172.10000000000002,
@@ -6573,6 +6695,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0/q4_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 77.35,
@@ -6637,6 +6760,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0/q4_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 44.51,
@@ -6686,6 +6810,7 @@
    "model": "SmolLM3-3B",
    "config": "q8_0/q4_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.25,
@@ -6735,6 +6860,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0/q8_0",
    "context": 2048,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 172.365,
@@ -6799,6 +6925,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0/q8_0",
    "context": 8192,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 10,
    "prefill": {
     "median": 77.445,
@@ -6863,6 +6990,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0/q8_0",
    "context": 16384,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 44.49,
@@ -6912,6 +7040,7 @@
    "model": "SmolLM3-3B",
    "config": "q4_0/q8_0",
    "context": 32768,
+   "results_url": "https://github.com/StephenSook/gravitonkv/blob/1baf1af28ea972b6f79eaf25b60a7d321010aadc/results/smollm3-3b-full.json",
    "n": 5,
    "prefill": {
     "median": 24.25,

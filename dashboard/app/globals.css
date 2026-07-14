@@ -247,6 +247,16 @@ h1 .worse { color: #f08c4a; }
   color: var(--ink-2);
   font-weight: 500;
 }
+.provenance .chip-link {
+  color: var(--accent);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.provenance .chip-link:hover {
+  border-color: var(--hairline-bright);
+  color: var(--ink);
+  text-decoration: none;
+}
 
 /* ---------- panels ---------- */
 

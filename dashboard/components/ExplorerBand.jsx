@@ -88,6 +88,11 @@ export default function ExplorerBand({ cells }) {
                         {c.quality ? `NIAH ${c.quality.niah != null ? (c.quality.niah * 100).toFixed(0) + "%" : "–"} · RULER-vt ${c.quality.ruler_vt != null ? (c.quality.ruler_vt * 100).toFixed(0) + "%" : "–"} · KLD ${c.quality.kld != null ? c.quality.kld.toFixed(3) : "–"}` : "quality battery pending"}
                         {c.anomalies.length > 0 ? ` · anomalies: ${c.anomalies.join("; ")}` : ""}
                       </span>
+                      {c.results_url && (
+                        <span style={{ fontSize: 12 }}>
+                          <a href={c.results_url} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>source ↗</a>
+                        </span>
+                      )}
                     </div>
                   </td>
                 </tr>
