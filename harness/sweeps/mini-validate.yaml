@@ -1,9 +1,9 @@
 # Harness validation sweep: one cheap config pair at 2k. Not a findings source.
 sweep: mini-validate
-llama_cpp_dir: /home/ubuntu/llama.cpp
+llama_cpp_dir: ./llama.cpp
 model:
   name: Qwen3-4B-Instruct-2507
-  file: /home/ubuntu/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+  file: ./models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
   hf_repo: unsloth/Qwen3-4B-Instruct-2507-GGUF
   quant: Q4_K_M
 configs: ["f16", "q8_0/q4_0"]
@@ -12,6 +12,6 @@ reps: 5
 n_gen: 128
 threads: 16
 seed: 42
-output_dir: /home/ubuntu/results
+output_dir: ./results
 s3_bucket: gravitonkv-results-741030561008
 shutdown_on_complete: false

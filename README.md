@@ -366,6 +366,18 @@ scripts/     derived-view generators, validation, provisioning
 docs/        methodology notes
 ```
 
+## Reproduce it yourself
+
+One command, clean-room, on any arm64 Linux (an on-demand Graviton4 `c8g.4xlarge` for real numbers; any Arm CPU proves the harness):
+
+```bash
+git clone https://github.com/StephenSook/gravitonkv
+cd gravitonkv
+./scripts/reproduce.sh
+```
+
+It installs the build deps, builds the pinned llama.cpp with KleidiAI, asserts `KLEIDIAI = 1` in the build, downloads a small model, runs the harness end to end, and validates the output against the canonical JSON schema. It mirrors the CI job step for step, so a green CI badge means this path works from a cold clone (about 10 to 15 minutes, dominated by the llama.cpp build). To reproduce a full model matrix, run a full config on a Graviton4 instance, for example `python3 harness/sweep.py --config harness/sweeps/qwen3-4b-full.yaml` after downloading that model into `./models/`. Every sweep config uses relative paths, so nothing is tied to a private machine.
+
 ## Reproducibility contract
 
 - llama.cpp pinned at commit `2d973636e292ee6f75fadcf08d29cb33511f509f`, built with `-DGGML_CPU_KLEIDIAI=ON`. KleidiAI is reported as the baseline it is, not as our optimization.

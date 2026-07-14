@@ -124,11 +124,15 @@ export default function Page() {
                 ))}
               </tbody>
             </table>
-            <p style={{ marginTop: 16 }}>Reproduce a mini-sweep on any Graviton4 instance:</p>
+            <p style={{ marginTop: 16 }}>
+              Reproduce clean-room on any arm64 instance (Graviton4 for real numbers). One
+              command builds the pinned llama.cpp with KleidiAI, downloads a small model, runs
+              the harness, and validates the output against the schema. It mirrors CI:
+            </p>
             <pre style={{ background: "#0a0d1c", border: "1px solid var(--hairline)", borderRadius: 3, padding: "12px 14px", fontSize: 12.5, overflowX: "auto", marginTop: 8, fontFamily: "var(--font-mono)" }}>
 {`git clone https://github.com/StephenSook/gravitonkv
-cd gravitonkv/harness
-./run_sweep.sh --config sweeps/mini-validate.yaml`}
+cd gravitonkv
+./scripts/reproduce.sh`}
             </pre>
             {bandsData.commit && (
               <>

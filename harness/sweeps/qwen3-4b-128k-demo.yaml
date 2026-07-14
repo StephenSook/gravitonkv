@@ -3,10 +3,10 @@
 # r8g memory-optimized instance: a 128k f16 KV cache plus compute buffers exceeds
 # the 32 GiB on c8g.4xlarge.
 sweep: qwen3-4b-128k-demo
-llama_cpp_dir: /home/ubuntu/llama.cpp
+llama_cpp_dir: ./llama.cpp
 model:
   name: Qwen3-4B-Instruct-2507
-  file: /home/ubuntu/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+  file: ./models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
   hf_repo: unsloth/Qwen3-4B-Instruct-2507-GGUF
   quant: Q4_K_M
 configs: ["f16", "q4_0"]
@@ -16,6 +16,6 @@ reps:
 n_gen: 128
 threads: 16
 seed: 42
-output_dir: /home/ubuntu/results
+output_dir: ./results
 s3_bucket: gravitonkv-results-741030561008
 shutdown_on_complete: true
