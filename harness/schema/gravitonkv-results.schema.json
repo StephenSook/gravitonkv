@@ -126,8 +126,8 @@
           "additionalProperties": false,
           "properties": {
             "niah": { "type": "number", "minimum": 0, "maximum": 1 },
-            "ruler_lite": { "type": "number", "minimum": 0, "maximum": 1 },
-            "perplexity": { "type": "number", "exclusiveMinimum": 0 },
+            "ruler_vt": { "type": "number", "minimum": 0, "maximum": 1 },
+            "ppl": { "type": "number", "exclusiveMinimum": 0 },
             "kld": { "type": "number", "minimum": 0 }
           }
         },

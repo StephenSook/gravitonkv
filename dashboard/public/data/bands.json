@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-13T01:52:10.008Z",
+ "generated_at": "2026-07-14T07:47:54.989Z",
  "generated_by": "scripts/gen-dashboard-data.mjs",
  "models": [
   "Qwen3-4B-Instruct-2507",
@@ -245,7 +245,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -307,7 +308,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -354,7 +356,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.7
+    "niah": 0.7,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -401,7 +404,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.9
+    "niah": 0.9,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -464,7 +468,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020559
+    "kld": 0.020559,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -527,7 +532,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020559
+    "kld": 0.020559,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -575,7 +581,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020559
+    "kld": 0.020559,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -623,7 +630,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.020559
+    "kld": 0.020559,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -686,7 +694,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.126763
+    "kld": 0.126763,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -749,7 +758,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.126763
+    "kld": 0.126763,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -797,7 +807,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.126763
+    "kld": 0.126763,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -845,7 +856,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.8,
-    "kld": 0.126763
+    "kld": 0.126763,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -908,7 +920,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031559
+    "kld": 0.031559,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -971,7 +984,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031559
+    "kld": 0.031559,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -1019,7 +1033,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031559
+    "kld": 0.031559,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1067,7 +1082,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.031559
+    "kld": 0.031559,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1130,7 +1146,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.119039
+    "kld": 0.119039,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1193,7 +1210,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.119039
+    "kld": 0.119039,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1241,7 +1259,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.119039
+    "kld": 0.119039,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -1289,7 +1308,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.119039
+    "kld": 0.119039,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1351,7 +1371,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -1413,7 +1434,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1460,7 +1482,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1507,7 +1530,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -1570,7 +1594,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.00511,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -1633,7 +1658,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.00511,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -1681,7 +1707,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.00511,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -1729,7 +1756,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.00511,
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -1792,7 +1820,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.022506,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -1855,7 +1884,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.022506,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -1903,7 +1933,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.022506,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -1951,7 +1982,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.022506,
-    "niah": 0.9
+    "niah": 0.9,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2014,7 +2046,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.008665,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -2077,7 +2110,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.008665,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2125,7 +2159,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.008665,
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2173,7 +2208,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.008665,
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -2236,7 +2272,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.0185,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -2299,7 +2336,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.0185,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2347,7 +2385,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.0185,
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2395,7 +2434,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "kld": 0.0185,
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2457,7 +2497,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2519,7 +2560,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -2566,7 +2608,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -2613,7 +2656,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.9
+    "niah": 0.9,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -2676,7 +2720,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.014347
+    "kld": 0.014347,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2739,7 +2784,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.014347
+    "kld": 0.014347,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -2787,7 +2833,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.014347
+    "kld": 0.014347,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -2835,7 +2882,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.014347
+    "kld": 0.014347,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -2898,7 +2946,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.625793
+    "kld": 1.625793,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -2961,7 +3010,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.625793
+    "kld": 1.625793,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -3009,7 +3059,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.625793
+    "kld": 1.625793,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3057,7 +3108,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.625793
+    "kld": 1.625793,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3120,7 +3172,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.023616
+    "kld": 0.023616,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -3183,7 +3236,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.023616
+    "kld": 0.023616,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -3231,7 +3285,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.023616
+    "kld": 0.023616,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3279,7 +3334,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.023616
+    "kld": 0.023616,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -3342,7 +3398,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.594773
+    "kld": 1.594773,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3405,7 +3462,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.594773
+    "kld": 1.594773,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3453,7 +3511,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.594773
+    "kld": 1.594773,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3501,7 +3560,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 1.594773
+    "kld": 1.594773,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3563,7 +3623,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -3625,7 +3686,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -3672,7 +3734,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3719,7 +3782,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -3782,7 +3846,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.013541
+    "kld": 0.013541,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -3845,7 +3910,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.013541
+    "kld": 0.013541,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -3893,7 +3959,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.013541
+    "kld": 0.013541,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -3941,7 +4008,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.013541
+    "kld": 0.013541,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4004,7 +4072,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.36944
+    "kld": 0.36944,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4067,7 +4136,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.36944
+    "kld": 0.36944,
+    "ruler_vt": 0.4
    },
    "anomalies": []
   },
@@ -4115,7 +4185,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.36944
+    "kld": 0.36944,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -4163,7 +4234,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.36944
+    "kld": 0.36944,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4226,7 +4298,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020975
+    "kld": 0.020975,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4289,7 +4362,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020975
+    "kld": 0.020975,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -4337,7 +4411,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020975
+    "kld": 0.020975,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -4385,7 +4460,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020975
+    "kld": 0.020975,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4448,7 +4524,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.378994
+    "kld": 0.378994,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -4511,7 +4588,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.378994
+    "kld": 0.378994,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -4559,7 +4637,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.378994
+    "kld": 0.378994,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -4607,7 +4686,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.378994
+    "kld": 0.378994,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -4669,7 +4749,9 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8,
+    "ppl": 9.3439
    },
    "anomalies": []
   },
@@ -4731,7 +4813,9 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 1,
+    "ppl": 8.9242
    },
    "anomalies": []
   },
@@ -4778,7 +4862,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -4825,7 +4910,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -4888,7 +4974,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 0.8,
+    "ppl": 9.3418
    },
    "anomalies": []
   },
@@ -4951,7 +5039,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 1,
+    "ppl": 8.9199
    },
    "anomalies": []
   },
@@ -4999,7 +5089,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 1,
+    "ppl": 8.0955
    },
    "anomalies": []
   },
@@ -5047,7 +5139,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5110,7 +5203,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1,
+    "ppl": 9.4916
    },
    "anomalies": []
   },
@@ -5173,7 +5268,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1,
+    "ppl": 9.0921
    },
    "anomalies": []
   },
@@ -5221,7 +5318,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1,
+    "ppl": 8.264
    },
    "anomalies": []
   },
@@ -5269,7 +5368,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5332,7 +5432,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.8,
+    "ppl": 9.3402
    },
    "anomalies": []
   },
@@ -5395,7 +5497,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.6,
+    "ppl": 8.9014
    },
    "anomalies": []
   },
@@ -5443,7 +5547,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 1,
+    "ppl": 8.0834
    },
    "anomalies": []
   },
@@ -5491,7 +5597,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5554,7 +5661,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.8,
+    "ppl": 9.5232
    },
    "anomalies": []
   },
@@ -5617,7 +5726,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 1,
+    "ppl": 9.1003
    },
    "anomalies": []
   },
@@ -5665,7 +5776,9 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.8,
+    "ppl": 8.2237
    },
    "anomalies": []
   },
@@ -5713,7 +5826,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.6
    },
    "anomalies": []
   },
@@ -5775,7 +5889,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5837,7 +5952,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.9
+    "niah": 0.9,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5884,7 +6000,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 1
+    "niah": 1,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -5931,7 +6048,8 @@
    },
    "kv_buffer_mb": null,
    "quality": {
-    "niah": 0.8
+    "niah": 0.8,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -5994,7 +6112,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.004905
+    "kld": 0.004905,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6057,7 +6176,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.004905
+    "kld": 0.004905,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6105,7 +6225,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.004905
+    "kld": 0.004905,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -6153,7 +6274,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.8,
-    "kld": 0.004905
+    "kld": 0.004905,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -6216,7 +6338,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.023005
+    "kld": 0.023005,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6279,7 +6402,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.023005
+    "kld": 0.023005,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -6327,7 +6451,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.023005
+    "kld": 0.023005,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -6375,7 +6500,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.8,
-    "kld": 0.023005
+    "kld": 0.023005,
+    "ruler_vt": 0
    },
    "anomalies": []
   },
@@ -6438,7 +6564,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.007903
+    "kld": 0.007903,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6501,7 +6628,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.007903
+    "kld": 0.007903,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6549,7 +6677,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.007903
+    "kld": 0.007903,
+    "ruler_vt": 1
    },
    "anomalies": []
   },
@@ -6597,7 +6726,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.8,
-    "kld": 0.007903
+    "kld": 0.007903,
+    "ruler_vt": 0.2
    },
    "anomalies": []
   },
@@ -6660,7 +6790,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0,
-    "kld": 0.020072
+    "kld": 0.020072,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6723,7 +6854,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.9,
-    "kld": 0.020072
+    "kld": 0.020072,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6771,7 +6903,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 1,
-    "kld": 0.020072
+    "kld": 0.020072,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   },
@@ -6819,7 +6952,8 @@
    "kv_buffer_mb": null,
    "quality": {
     "niah": 0.8,
-    "kld": 0.020072
+    "kld": 0.020072,
+    "ruler_vt": 0.8
    },
    "anomalies": []
   }

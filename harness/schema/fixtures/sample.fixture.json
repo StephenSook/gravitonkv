@@ -62,7 +62,9 @@
       },
       "quality": {
         "niah": 1.0,
-        "perplexity": 12.34
+        "ruler_vt": 0.8,
+        "ppl": 12.34,
+        "kld": 0.0037
       },
       "pmu": null,
       "anomalies": [],

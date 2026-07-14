@@ -93,7 +93,9 @@
     }
    },
    "quality": {
-    "niah": 1.0
+    "niah": 1.0,
+    "ruler_vt": 0.8,
+    "ppl": 9.3439
    },
    "pmu": null,
    "anomalies": [],
@@ -179,7 +181,9 @@
     }
    },
    "quality": {
-    "niah": 1.0
+    "niah": 1.0,
+    "ruler_vt": 1.0,
+    "ppl": 8.9242
    },
    "pmu": null,
    "anomalies": [],
@@ -250,7 +254,8 @@
     }
    },
    "quality": {
-    "niah": 1.0
+    "niah": 1.0,
+    "ruler_vt": 0.8
    },
    "pmu": null,
    "anomalies": [],
@@ -316,7 +321,8 @@
     }
    },
    "quality": {
-    "niah": 1.0
+    "niah": 1.0,
+    "ruler_vt": 0.8
    },
    "pmu": null,
    "anomalies": [],
@@ -398,7 +404,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 0.8,
+    "ppl": 9.3418
    },
    "pmu": null,
    "anomalies": [],
@@ -485,7 +493,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 1.0,
+    "ppl": 8.9199
    },
    "pmu": null,
    "anomalies": [],
@@ -557,7 +567,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 1.0,
+    "ppl": 8.0955
    },
    "pmu": null,
    "anomalies": [],
@@ -624,7 +636,8 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.003708
+    "kld": 0.003708,
+    "ruler_vt": 0.8
    },
    "pmu": null,
    "anomalies": [],
@@ -706,7 +719,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1.0,
+    "ppl": 9.4916
    },
    "pmu": null,
    "anomalies": [],
@@ -793,7 +808,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1.0,
+    "ppl": 9.0921
    },
    "pmu": null,
    "anomalies": [],
@@ -865,7 +882,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 1.0,
+    "ppl": 8.264
    },
    "pmu": null,
    "anomalies": [],
@@ -932,7 +951,8 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.034102
+    "kld": 0.034102,
+    "ruler_vt": 0.8
    },
    "pmu": null,
    "anomalies": [],
@@ -1014,7 +1034,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.8,
+    "ppl": 9.3402
    },
    "pmu": null,
    "anomalies": [],
@@ -1101,7 +1123,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.6,
+    "ppl": 8.9014
    },
    "pmu": null,
    "anomalies": [],
@@ -1173,7 +1197,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 1.0,
+    "ppl": 8.0834
    },
    "pmu": null,
    "anomalies": [],
@@ -1240,7 +1266,8 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.006314
+    "kld": 0.006314,
+    "ruler_vt": 0.8
    },
    "pmu": null,
    "anomalies": [],
@@ -1322,7 +1349,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.8,
+    "ppl": 9.5232
    },
    "pmu": null,
    "anomalies": [],
@@ -1409,7 +1438,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 1.0,
+    "ppl": 9.1003
    },
    "pmu": null,
    "anomalies": [],
@@ -1481,7 +1512,9 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.8,
+    "ppl": 8.2237
    },
    "pmu": null,
    "anomalies": [],
@@ -1548,7 +1581,8 @@
    },
    "quality": {
     "niah": 1.0,
-    "kld": 0.031252
+    "kld": 0.031252,
+    "ruler_vt": 0.6
    },
    "pmu": null,
    "anomalies": [],
